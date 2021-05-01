@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".SelectAvatarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Select an avatar:"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageButton
+                    android:id="@+id/real"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/real" />
+
+                <ImageButton
+                    android:id="@+id/barcelona"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/barcelona" />
+
+                <ImageButton
+                    android:id="@+id/atletico"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/atletico" />
+
+                <ImageButton
+                    android:id="@+id/sevilla"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/sevilla" />
+
+                <ImageButton
+                    android:id="@+id/valencia"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/valencia" />
+
+                <ImageButton
+                    android:id="@+id/united"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/united" />
+
+                <ImageButton
+                    android:id="@+id/chelsea"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/chelsea" />
+
+                <ImageButton
+                    android:id="@+id/city"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/city" />
+
+                <ImageButton
+                    android:id="@+id/spurs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/spurs" />
+
+                <ImageButton
+                    android:id="@+id/liverpool"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/liverpool" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:weightSum="10">
+
+                <ImageButton
+                    android:id="@+id/bayern"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/bayern" />
+
+                <ImageButton
+                    android:id="@+id/dortmund"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/dortmund" />
+
+                <ImageButton
+                    android:id="@+id/shalke"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/shalke" />
+
+                <ImageButton
+                    android:id="@+id/leipzig"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/leipzig" />
+
+                <ImageButton
+                    android:id="@+id/monchen"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:background="@color/black"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/monchen" />
+
+                <ImageButton
+                    android:id="@+id/juventus"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/juventus" />
+
+                <ImageButton
+                    android:id="@+id/milan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/milan" />
+
+                <ImageButton
+                    android:id="@+id/inter"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/inter" />
+
+                <ImageButton
+                    android:id="@+id/lazio"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/lazio" />
+
+                <ImageButton
+                    android:id="@+id/roma"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    app:srcCompat="@drawable/roma" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageButton
+                    android:id="@+id/psg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/psg" />
+
+                <ImageButton
+                    android:id="@+id/marseille"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/marseille" />
+
+                <ImageButton
+                    android:id="@+id/lyon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/lyon" />
+
+                <ImageButton
+                    android:id="@+id/monaco"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/monaco" />
+
+                <ImageButton
+                    android:id="@+id/nice"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/nice" />
+
+                <ImageButton
+                    android:id="@+id/brasov"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/brasov" />
+
+                <ImageButton
+                    android:id="@+id/steaua"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/steaua" />
+
+                <ImageButton
+                    android:id="@+id/cfr"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/cfr" />
+
+                <ImageButton
+                    android:id="@+id/craiova"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/craiova" />
+
+                <ImageButton
+                    android:id="@+id/dinamo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/dinamo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

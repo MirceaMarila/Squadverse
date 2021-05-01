@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "180196511464",
+    "firebase_url": "https://squadverse-d5066-default-rtdb.firebaseio.com",
+    "project_id": "squadverse-d5066",
+    "storage_bucket": "squadverse-d5066.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180196511464:android:0291103b1150d8fe8fc35d",
+        "android_client_info": {
+          "package_name": "com.example.squadverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180196511464-kghgj67st17m71o1iphiee1tfe8dhhmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjYYF8kO4ztA1OgyXjkaFVSirzqbbExEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180196511464-kghgj67st17m71o1iphiee1tfe8dhhmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
