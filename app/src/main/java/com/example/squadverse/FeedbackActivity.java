@@ -1,11 +1,8 @@
 package com.example.squadverse;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,9 +11,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 
-public class FeedbackActivity extends HideUiActivity {
+public class FeedbackActivity extends BaseActivity {
 
     EditText feedback;
     Button send, back;

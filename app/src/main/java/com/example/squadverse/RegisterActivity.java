@@ -22,12 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 import information.UserInformation;
 
 import static draft.FormationsActivity.getId;
 
-public class RegisterActivity extends HideUiActivity {
+public class RegisterActivity extends BaseActivity {
 
     //variabile
     private EditText email, password, username;

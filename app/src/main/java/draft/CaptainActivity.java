@@ -1,8 +1,5 @@
 package draft;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 
-public class CaptainActivity extends HideUiActivity {
+public class CaptainActivity extends BaseActivity {
 
     List<String> captain_pick = new ArrayList<String>();
     ImageButton captain1, captain2, captain3, captain4, captain5;

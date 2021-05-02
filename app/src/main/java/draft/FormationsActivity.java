@@ -1,25 +1,20 @@
 package draft;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.squadverse.MainActivity;
 import com.example.squadverse.R;
-import com.example.squadverse.RegisterActivity;
-import com.example.squadverse.SelectAvatarActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 
-public class FormationsActivity extends HideUiActivity {
+public class FormationsActivity extends BaseActivity {
 
     List<String> random_formations = new ArrayList<String>();
     ImageButton formation1, formation2, formation3, formation4, formation5;

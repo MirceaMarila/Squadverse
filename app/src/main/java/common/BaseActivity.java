@@ -9,7 +9,7 @@ import android.view.Window;
 
 import com.example.squadverse.R;
 
-public class HideUiActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
 
     // formations database
     protected final String[] mid_formations = {"f_433_attack", "f_433_defend", "f_433_false9"};

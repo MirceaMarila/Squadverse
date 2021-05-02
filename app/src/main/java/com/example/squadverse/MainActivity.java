@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 import draft.FormationsActivity;
 
-public class MainActivity extends HideUiActivity {
+public class MainActivity extends BaseActivity {
 
     // variabile
     ImageButton register, login, build_a_draft, bug_reporting, feedback;

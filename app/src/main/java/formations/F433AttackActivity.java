@@ -1,14 +1,12 @@
 package formations;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.example.squadverse.R;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 
-public class F433AttackActivity extends HideUiActivity {
+public class F433AttackActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

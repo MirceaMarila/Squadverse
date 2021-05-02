@@ -1,18 +1,13 @@
 package com.example.squadverse;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 
-public class SelectAvatarActivity extends HideUiActivity {
+public class SelectAvatarActivity extends BaseActivity {
 
     //variabile
     ImageButton real, barcelona, atletico, sevilla, valencia, united, chelsea, city, spurs, liverpool, bayern, dortmund, shalke, leipzig, monchen;

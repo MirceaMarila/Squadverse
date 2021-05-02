@@ -24,10 +24,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import common.HideUiActivity;
+import common.BaseActivity;
 import information.UserInformation;
 
-public class LoginActivity extends HideUiActivity {
+public class LoginActivity extends BaseActivity {
 
     //Firebase acc variables
     private EditText username, password;
