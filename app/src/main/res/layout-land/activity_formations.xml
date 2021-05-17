@@ -33,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1.5"
             android:orientation="horizontal"
+            android:background="@drawable/negru_gri"
             android:weightSum="5">
 
             <ImageButton

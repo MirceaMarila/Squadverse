@@ -12,6 +12,7 @@ import com.example.squadverse.R;
 public class BaseActivity extends AppCompatActivity {
 
     // formations database
+    protected final String[] all_formations = {"f_433_attack", "f_433_defend", "f_433_false9", "f_3142", "f_523"};
     protected final String[] mid_formations = {"f_433_attack", "f_433_defend", "f_433_false9"};
     protected final String[] att_formations = {"f_3142"};
     protected final String[] def_formations = {"f_523"};

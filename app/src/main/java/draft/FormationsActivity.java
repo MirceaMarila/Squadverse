@@ -110,26 +110,29 @@ public class FormationsActivity extends BaseActivity {
     public void choose_5_random_formations(){
         Random generator = new Random();
 
-        int randomIndex = generator.nextInt(mid_formations.length);
-        int randomIndex2 = generator.nextInt(mid_formations.length);
-        int randomIndex3 = generator.nextInt(mid_formations.length);
+        int randomIndex = generator.nextInt(all_formations.length);
+        int randomIndex2 = generator.nextInt(all_formations.length);
+        int randomIndex3 = generator.nextInt(all_formations.length);
+        int randomIndex4 = generator.nextInt(all_formations.length);
+        int randomIndex5 = generator.nextInt(all_formations.length);
 
         while(randomIndex2 == randomIndex)
-            randomIndex2 = generator.nextInt(mid_formations.length);
+            randomIndex2 = generator.nextInt(all_formations.length);
 
         while(randomIndex3 == randomIndex || randomIndex3 == randomIndex2)
-            randomIndex3 = generator.nextInt(mid_formations.length);
+            randomIndex3 = generator.nextInt(all_formations.length);
 
-        random_formations.add(mid_formations[randomIndex]);
-        random_formations.add(mid_formations[randomIndex2]);
-        random_formations.add(mid_formations[randomIndex3]);
+        while(randomIndex4 == randomIndex || randomIndex4 == randomIndex2 || randomIndex4 == randomIndex3)
+            randomIndex4 = generator.nextInt(all_formations.length);
 
+        while(randomIndex5 == randomIndex || randomIndex5 == randomIndex2 || randomIndex5 == randomIndex3 || randomIndex5 == randomIndex4)
+            randomIndex5 = generator.nextInt(all_formations.length);
 
-        randomIndex = generator.nextInt(att_formations.length);
-        random_formations.add(att_formations[randomIndex]);
-
-        randomIndex = generator.nextInt(def_formations.length);
-        random_formations.add(def_formations[randomIndex]);
+        random_formations.add(all_formations[randomIndex]);
+        random_formations.add(all_formations[randomIndex2]);
+        random_formations.add(all_formations[randomIndex3]);
+        random_formations.add(all_formations[randomIndex4]);
+        random_formations.add(all_formations[randomIndex5]);
     }
 
     public static int getId(String resourceName, Class<?> c) {
