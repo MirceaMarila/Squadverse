@@ -13,321 +13,844 @@
         android:layout_height="match_parent"
         android:background="@drawable/field">
 
+        <ImageView
+            android:id="@+id/link_lw_st_433_att"
+            android:layout_width="156dp"
+            android:layout_height="236dp"
+            android:layout_alignStart="@+id/LL_lw_433_att"
+            android:layout_alignLeft="@+id/LL_lw_433_att"
+            android:layout_alignTop="@+id/LL_st_433_att"
+            android:layout_alignEnd="@+id/LL_st_433_att"
+            android:layout_alignRight="@+id/LL_st_433_att"
+            android:layout_alignBottom="@+id/LL_lw_433_att"
+            android:layout_marginStart="99dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="-26dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginRight="95dp"
+            android:layout_marginBottom="-89dp"
+            android:foregroundGravity="center"
+            android:rotation="86"
+            app:srcCompat="@drawable/link_subtire"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rw_st_433_att"
+            android:layout_width="156dp"
+            android:layout_height="236dp"
+            android:layout_alignStart="@+id/LL_st_433_att"
+            android:layout_alignLeft="@+id/LL_st_433_att"
+            android:layout_alignTop="@+id/LL_st_433_att"
+            android:layout_alignEnd="@+id/LL_rw_433_att"
+            android:layout_alignRight="@+id/LL_rw_433_att"
+            android:layout_alignBottom="@+id/LL_rw_433_att"
+            android:layout_marginStart="74dp"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="-26dp"
+            android:layout_marginEnd="79dp"
+            android:layout_marginRight="79dp"
+            android:layout_marginBottom="-89dp"
+            android:foregroundGravity="center"
+            android:rotation="-86"
+            app:srcCompat="@drawable/link_subtire"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_cam_st_433_att"
+            android:layout_width="218dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/LL_st_433_att"
+            android:layout_alignLeft="@+id/LL_st_433_att"
+            android:layout_alignTop="@+id/LL_st_433_att"
+            android:layout_alignEnd="@+id/LL_st_433_att"
+            android:layout_alignRight="@+id/LL_st_433_att"
+            android:layout_alignBottom="@+id/LL_cam_433_att"
+            android:layout_marginStart="-82dp"
+            android:layout_marginLeft="-82dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="-81dp"
+            android:layout_marginRight="-81dp"
+            android:layout_marginBottom="23dp"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_cam_lcm_433_att"
+            android:layout_width="354dp"
+            android:layout_height="160dp"
+            android:layout_alignStart="@+id/link_cam_st_433_att"
+            android:layout_alignLeft="@+id/link_cam_st_433_att"
+            android:layout_alignTop="@+id/LL_rcm_433_att"
+            android:layout_alignEnd="@+id/LL_rcm_433_att"
+            android:layout_alignRight="@+id/LL_rcm_433_att"
+            android:layout_alignBottom="@+id/LL_rcm_433_att"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="-9dp"
+            android:layout_marginEnd="-54dp"
+            android:layout_marginRight="-54dp"
+            android:layout_marginBottom="-52dp"
+            android:foregroundGravity="center"
+            android:rotation="-86"
+            app:srcCompat="@drawable/link_mediu"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_cam_rcm_433_att"
+            android:layout_width="354dp"
+            android:layout_height="160dp"
+            android:layout_alignStart="@+id/LL_lcm_433_att"
+            android:layout_alignLeft="@+id/LL_lcm_433_att"
+            android:layout_alignTop="@+id/LL_lcm_433_att"
+            android:layout_alignEnd="@+id/LL_cam_433_att"
+            android:layout_alignRight="@+id/LL_cam_433_att"
+            android:layout_alignBottom="@+id/LL_lcm_433_att"
+            android:layout_marginStart="-33dp"
+            android:layout_marginLeft="-33dp"
+            android:layout_marginTop="-7dp"
+            android:layout_marginEnd="-39dp"
+            android:layout_marginRight="-39dp"
+            android:layout_marginBottom="-52dp"
+            android:foregroundGravity="center"
+            android:rotation="86"
+            app:srcCompat="@drawable/link_mediu"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_lw_lcm_433_att"
+            android:layout_width="313dp"
+            android:layout_height="131dp"
+            android:layout_alignStart="@+id/LL_lw_433_att"
+            android:layout_alignLeft="@+id/LL_lw_433_att"
+            android:layout_alignTop="@+id/LL_lw_433_att"
+            android:layout_alignEnd="@+id/LL_lcm_433_att"
+            android:layout_alignRight="@+id/LL_lcm_433_att"
+            android:layout_alignBottom="@+id/LL_lcm_433_att"
+            android:layout_marginStart="-92dp"
+            android:layout_marginLeft="-92dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="-92dp"
+            android:layout_marginRight="-92dp"
+            android:layout_marginBottom="1dp"
+            android:foregroundGravity="center"
+            android:rotation="-40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rw_rcm_433_att"
+            android:layout_width="313dp"
+            android:layout_height="131dp"
+            android:layout_alignStart="@+id/LL_rcm_433_att"
+            android:layout_alignLeft="@+id/LL_rcm_433_att"
+            android:layout_alignTop="@+id/LL_rw_433_att"
+            android:layout_alignEnd="@+id/LL_rw_433_att"
+            android:layout_alignRight="@+id/LL_rw_433_att"
+            android:layout_alignBottom="@+id/LL_rcm_433_att"
+            android:layout_marginStart="-91dp"
+            android:layout_marginLeft="-91dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="-92dp"
+            android:layout_marginRight="-92dp"
+            android:layout_marginBottom="0dp"
+            android:foregroundGravity="center"
+            android:rotation="40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rw_rb_433_att"
+            android:layout_width="313dp"
+            android:layout_height="174dp"
+            android:layout_alignStart="@+id/LL_rb_433_att"
+            android:layout_alignLeft="@+id/LL_rb_433_att"
+            android:layout_alignTop="@+id/LL_rw_433_att"
+            android:layout_alignEnd="@+id/LL_rb_433_att"
+            android:layout_alignRight="@+id/LL_rb_433_att"
+            android:layout_alignBottom="@+id/LL_rb_433_att"
+            android:layout_marginStart="-128dp"
+            android:layout_marginLeft="-128dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="-130dp"
+            android:layout_marginRight="-130dp"
+            android:layout_marginBottom="22dp"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/link_mediu"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_lw_lb_433_att"
+            android:layout_width="313dp"
+            android:layout_height="174dp"
+            android:layout_alignStart="@+id/LL_lb_433_att"
+            android:layout_alignLeft="@+id/LL_lb_433_att"
+            android:layout_alignTop="@+id/LL_lw_433_att"
+            android:layout_alignEnd="@+id/LL_lb_433_att"
+            android:layout_alignRight="@+id/LL_lb_433_att"
+            android:layout_alignBottom="@+id/LL_lb_433_att"
+            android:layout_marginStart="-130dp"
+            android:layout_marginLeft="-130dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="-128dp"
+            android:layout_marginRight="-128dp"
+            android:layout_marginBottom="23dp"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/link_mediu"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_lb_lcb_433_att"
+            android:layout_width="313dp"
+            android:layout_height="131dp"
+            android:layout_alignStart="@+id/LL_lb_433_att"
+            android:layout_alignLeft="@+id/LL_lb_433_att"
+            android:layout_alignTop="@+id/LL_lb_433_att"
+            android:layout_alignEnd="@+id/LL_lcb_433_att"
+            android:layout_alignRight="@+id/LL_lcb_433_att"
+            android:layout_alignBottom="@+id/LL_lcb_433_att"
+            android:layout_marginStart="-60dp"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="-48dp"
+            android:layout_marginRight="-48dp"
+            android:layout_marginBottom="-43dp"
+            android:foregroundGravity="center"
+            android:rotation="-90"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rb_rcb_433_att"
+            android:layout_width="313dp"
+            android:layout_height="131dp"
+            android:layout_alignStart="@+id/LL_rcb_433_att"
+            android:layout_alignLeft="@+id/LL_rcb_433_att"
+            android:layout_alignTop="@+id/LL_rb_433_att"
+            android:layout_alignEnd="@+id/LL_rb_433_att"
+            android:layout_alignRight="@+id/LL_rb_433_att"
+            android:layout_alignBottom="@+id/LL_rb_433_att"
+            android:layout_marginStart="-54dp"
+            android:layout_marginLeft="-54dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="-54dp"
+            android:layout_marginRight="-54dp"
+            android:layout_marginBottom="-42dp"
+            android:foregroundGravity="center"
+            android:rotation="-90"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+
+        <ImageView
+            android:id="@+id/link_lcb_rcb_433_att"
+            android:layout_width="153dp"
+            android:layout_height="235dp"
+            android:layout_alignStart="@+id/LL_lcb_433_att"
+            android:layout_alignLeft="@+id/LL_lcb_433_att"
+            android:layout_alignTop="@+id/LL_lcb_433_att"
+            android:layout_alignEnd="@+id/LL_rcb_433_att"
+            android:layout_alignRight="@+id/LL_rcb_433_att"
+            android:layout_alignBottom="@+id/LL_lw_433_att"
+            android:layout_marginStart="67dp"
+            android:layout_marginLeft="67dp"
+            android:layout_marginTop="-39dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginRight="84dp"
+            android:layout_marginBottom="-266dp"
+            android:foregroundGravity="center"
+            android:rotation="-90"
+            app:srcCompat="@drawable/link_subtire"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_lcm_lcb_433_att"
+            android:layout_width="286dp"
+            android:layout_height="114dp"
+            android:layout_alignStart="@+id/LL_lcm_433_att"
+            android:layout_alignLeft="@+id/LL_lcm_433_att"
+            android:layout_alignTop="@+id/LL_lcm_433_att"
+            android:layout_alignEnd="@+id/LL_lcb_433_att"
+            android:layout_alignRight="@+id/LL_lcb_433_att"
+            android:layout_alignBottom="@+id/LL_lcb_433_att"
+            android:layout_marginStart="-81dp"
+            android:layout_marginLeft="-81dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="-73dp"
+            android:layout_marginRight="-73dp"
+            android:layout_marginBottom="4dp"
+            android:foregroundGravity="center"
+            android:rotation="-40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rcm_rcb_433_att"
+            android:layout_width="286dp"
+            android:layout_height="114dp"
+            android:layout_alignStart="@+id/LL_rcb_433_att"
+            android:layout_alignLeft="@+id/LL_rcb_433_att"
+            android:layout_alignTop="@+id/LL_rcm_433_att"
+            android:layout_alignEnd="@+id/LL_rcm_433_att"
+            android:layout_alignRight="@+id/LL_rcm_433_att"
+            android:layout_alignBottom="@+id/LL_rcb_433_att"
+            android:layout_marginStart="-74dp"
+            android:layout_marginLeft="-74dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="-80dp"
+            android:layout_marginRight="-80dp"
+            android:layout_marginBottom="4dp"
+            android:foregroundGravity="center"
+            android:rotation="40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+
+        <ImageView
+            android:id="@+id/link_lcm_lb_433_att"
+            android:layout_width="286dp"
+            android:layout_height="114dp"
+            android:layout_alignStart="@+id/link_lcm_lcb_433_att"
+            android:layout_alignLeft="@+id/link_lcm_lcb_433_att"
+            android:layout_alignTop="@+id/LL_lcm_433_att"
+            android:layout_alignEnd="@+id/LL_lcm_433_att"
+            android:layout_alignRight="@+id/LL_lcm_433_att"
+            android:layout_alignBottom="@+id/LL_lb_433_att"
+            android:layout_marginStart="-72dp"
+            android:layout_marginLeft="-72dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="-79dp"
+            android:layout_marginRight="-79dp"
+            android:layout_marginBottom="2dp"
+            android:foregroundGravity="center"
+            android:rotation="40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rcm_rb_433_att"
+            android:layout_width="286dp"
+            android:layout_height="114dp"
+            android:layout_alignStart="@+id/LL_rcm_433_att"
+            android:layout_alignLeft="@+id/LL_rcm_433_att"
+            android:layout_alignTop="@+id/LL_rcm_433_att"
+            android:layout_alignEnd="@+id/link_rcm_rcb_433_att"
+            android:layout_alignRight="@+id/link_rcm_rcb_433_att"
+            android:layout_alignBottom="@+id/LL_rb_433_att"
+            android:layout_marginStart="-78dp"
+            android:layout_marginLeft="-78dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="-74dp"
+            android:layout_marginRight="-74dp"
+            android:layout_marginBottom="4dp"
+            android:foregroundGravity="center"
+            android:rotation="-40"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_lcb_gk_433_att"
+            android:layout_width="258dp"
+            android:layout_height="121dp"
+            android:layout_alignStart="@+id/LL_lcb_433_att"
+            android:layout_alignLeft="@+id/LL_lcb_433_att"
+            android:layout_alignTop="@+id/LL_lcb_433_att"
+            android:layout_alignEnd="@+id/LL_gk_433_att"
+            android:layout_alignRight="@+id/LL_gk_433_att"
+            android:layout_alignBottom="@+id/LL_gk_433_att"
+            android:layout_marginStart="-25dp"
+            android:layout_marginLeft="-25dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="-33dp"
+            android:layout_marginRight="-33dp"
+            android:layout_marginBottom="-23dp"
+            android:foregroundGravity="center"
+            android:rotation="-76"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
+        <ImageView
+            android:id="@+id/link_rcb_gk_433_att"
+            android:layout_width="293dp"
+            android:layout_height="107dp"
+            android:layout_alignStart="@+id/LL_gk_433_att"
+            android:layout_alignLeft="@+id/LL_gk_433_att"
+            android:layout_alignTop="@+id/LL_rcb_433_att"
+            android:layout_alignEnd="@+id/LL_rcb_433_att"
+            android:layout_alignRight="@+id/LL_rcb_433_att"
+            android:layout_alignBottom="@+id/LL_gk_433_att"
+            android:layout_marginStart="-79dp"
+            android:layout_marginLeft="-79dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="-55dp"
+            android:layout_marginRight="-55dp"
+            android:layout_marginBottom="-18dp"
+            android:foregroundGravity="center"
+            android:rotation="76"
+            app:srcCompat="@drawable/link"
+            tools:ignore="NotSibling" />
+
         <LinearLayout
+            android:id="@+id/LL_st_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="395dp"
-            android:layout_marginLeft="395dp"
-            android:layout_marginEnd="395dp"
-            android:layout_marginRight="395dp"
-            android:layout_marginBottom="250dp"
+            android:layout_marginStart="416dp"
+            android:layout_marginLeft="416dp"
+            android:layout_marginBottom="240dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/st_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_st_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_st" />
+
+            <TextView
+                android:id="@+id/chem_st_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_rw_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="650dp"
-            android:layout_marginLeft="650dp"
-            android:layout_marginBottom="240dp"
+            android:layout_marginStart="670dp"
+            android:layout_marginLeft="670dp"
+            android:layout_marginBottom="220dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/rw_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_rw_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_rw" />
+
+            <TextView
+                android:id="@+id/chem_rw_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_lw_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="650dp"
-            android:layout_marginRight="650dp"
-            android:layout_marginBottom="240dp"
+            android:layout_marginEnd="670dp"
+            android:layout_marginRight="670dp"
+            android:layout_marginBottom="220dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/lw_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_lw_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_lw" />
+
+            <TextView
+                android:id="@+id/chem_lw_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_cam_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="395dp"
-            android:layout_marginLeft="395dp"
-            android:layout_marginEnd="395dp"
-            android:layout_marginRight="395dp"
-            android:layout_marginBottom="155dp"
+            android:layout_marginStart="416dp"
+            android:layout_marginLeft="416dp"
+            android:layout_marginBottom="140dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/cam_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_cam_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_cam" />
+
+            <TextView
+                android:id="@+id/chem_cam_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_lcm_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="-250dp"
-            android:layout_marginLeft="-250dp"
-            android:layout_marginBottom="140dp"
+            android:layout_marginEnd="595dp"
+            android:layout_marginRight="595dp"
+            android:layout_marginBottom="130dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/lcm_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_lcm_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_cm" />
+
+            <TextView
+                android:id="@+id/chem_lcm_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_rcm_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginBottom="140dp"
+            android:layout_marginStart="595dp"
+            android:layout_marginLeft="595dp"
+            android:layout_marginBottom="130dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/rcm_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_rcm_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_cm" />
+
+            <TextView
+                android:id="@+id/chem_rcm_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_lcb_433_att"
             android:layout_width="55dp"
-            android:layout_height="80dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="-250dp"
-            android:layout_marginLeft="-250dp"
+            android:layout_marginEnd="520dp"
+            android:layout_marginRight="520dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/lcb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_lcb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_cb" />
+
+            <TextView
+                android:id="@+id/chem_lcb_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_rcb_433_att"
             android:layout_width="55dp"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
+            android:layout_marginStart="520dp"
+            android:layout_marginLeft="520dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/rcb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_rcb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_cb" />
+
+            <TextView
+                android:id="@+id/chem_rcb_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_gk_433_att"
             android:layout_width="55dp"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="395dp"
-            android:layout_marginLeft="395dp"
-            android:layout_marginEnd="395dp"
-            android:layout_marginRight="395dp"
+            android:layout_marginStart="416dp"
+            android:layout_marginLeft="416dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/gk_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_gk_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_gk" />
+
+            <TextView
+                android:id="@+id/chem_gk_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_rb_433_att"
             android:layout_width="55dp"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="650dp"
-            android:layout_marginLeft="650dp"
+            android:layout_marginStart="670dp"
+            android:layout_marginLeft="670dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/rb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_rb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_rb" />
+
+            <TextView
+                android:id="@+id/chem_rb_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LL_lb_433_att"
             android:layout_width="55dp"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="650dp"
-            android:layout_marginRight="650dp"
+            android:layout_marginEnd="670dp"
+            android:layout_marginRight="670dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="8">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/lb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/empty_card" />
+                android:layout_weight="2"
+                android:background="@drawable/empty_card" />
 
             <ImageView
                 android:id="@+id/podium_lb_433_att"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 app:srcCompat="@drawable/podium_lb" />
+
+            <TextView
+                android:id="@+id/chem_lb_433_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <TextView
@@ -409,50 +932,64 @@
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_1"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_2"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_3"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_4"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_5"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_6"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_sub_7"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
             </LinearLayout>
@@ -477,36 +1014,46 @@
 
                 <ImageButton
                     android:id="@+id/f_433_att_res_1"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_res_2"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_res_3"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_res_4"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
 
                 <ImageButton
                     android:id="@+id/f_433_att_res_5"
-                    android:layout_width="107dp"
-                    android:layout_height="150dp"
+                    android:layout_width="93dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/empty_card" />
             </LinearLayout>

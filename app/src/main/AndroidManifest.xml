@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Squadverse.Fullscreen">
+
+        <activity
+            android:name="draft.PlayerPickActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name="formations.F433AttackActivity"
             android:screenOrientation="landscape" />
