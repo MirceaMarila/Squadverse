@@ -76,7 +76,7 @@
             tools:ignore="NotSibling" />
 
         <ImageView
-            android:id="@+id/link_cam_lcm_433_att"
+            android:id="@+id/link_cam_rcm_433_att"
             android:layout_width="354dp"
             android:layout_height="160dp"
             android:layout_alignStart="@+id/link_cam_st_433_att"
@@ -97,7 +97,7 @@
             tools:ignore="NotSibling" />
 
         <ImageView
-            android:id="@+id/link_cam_rcm_433_att"
+            android:id="@+id/link_cam_lcm_433_att"
             android:layout_width="354dp"
             android:layout_height="160dp"
             android:layout_alignStart="@+id/LL_lcm_433_att"
@@ -401,6 +401,7 @@
             android:layout_marginLeft="416dp"
             android:layout_marginBottom="240dp"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:weightSum="8">
 
             <ImageButton
@@ -427,6 +428,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
@@ -469,6 +473,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
@@ -510,6 +517,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -552,6 +562,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -595,6 +608,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
@@ -637,6 +653,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -679,6 +698,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -721,6 +743,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -764,6 +789,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp" />
@@ -805,6 +833,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"
@@ -847,6 +878,9 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.3"
                 android:shadowRadius="1.6"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="#33000000"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="#FFFFFF"

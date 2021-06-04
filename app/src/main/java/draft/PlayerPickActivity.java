@@ -36,94 +36,10 @@ public class PlayerPickActivity extends BaseActivity {
         player5 = findViewById(R.id.player_5);
 
         String picked_players_string = getIntent().getStringExtra("picked_players");
-        picked_players = picked_players_string.split("@", 20);
+        picked_players = picked_players_string.split("@", 25);
         String pozitia = getIntent().getStringExtra("position");
-        switch (pozitia){
-            case "any":
-                choose_5_random_players(all_cards);
-                break;
 
-            case "defence":
-                choose_5_random_players(def_cards);
-                break;
-
-            case "midfield":
-                choose_5_random_players(mid_cards);
-                break;
-
-            case "attack":
-                choose_5_random_players(att_cards);
-                break;
-
-            case "gk":
-                choose_5_random_players(gk_cards);
-                break;
-
-            case "st":
-                choose_5_random_players(st_cards);
-                break;
-
-            case "lw":
-                choose_5_random_players(lw_cards);
-                break;
-
-            case "rw":
-                choose_5_random_players(rw_cards);
-                break;
-
-            case "cf":
-                choose_5_random_players(cf_cards);
-                break;
-
-            case "lf":
-                choose_5_random_players(lf_cards);
-                break;
-
-            case "rf":
-                choose_5_random_players(rf_cards);
-                break;
-
-            case "lm":
-                choose_5_random_players(lm_cards);
-                break;
-
-            case "cm":
-                choose_5_random_players(cm_cards);
-                break;
-
-            case "rm":
-                choose_5_random_players(rm_cards);
-                break;
-
-            case "cam":
-                choose_5_random_players(cam_cards);
-                break;
-
-            case "cdm":
-                choose_5_random_players(cdm_cards);
-                break;
-
-            case "lb":
-                choose_5_random_players(lb_cards);
-                break;
-
-            case "rb":
-                choose_5_random_players(rb_cards);
-                break;
-
-            case "cb":
-                choose_5_random_players(cb_cards);
-                break;
-
-            case "lwb":
-                choose_5_random_players(lwb_cards);
-                break;
-
-            case "rwb":
-                choose_5_random_players(rwb_cards);
-                break;
-        }
-
+        choose_player_database_from_received_position(pozitia);
         set_imagebuttons_background();
 
         player1.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +56,7 @@ public class PlayerPickActivity extends BaseActivity {
         player2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[1]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
                 setResult(Activity.RESULT_OK, resultIntent);
@@ -151,7 +67,7 @@ public class PlayerPickActivity extends BaseActivity {
         player3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[2]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
                 setResult(Activity.RESULT_OK, resultIntent);
@@ -162,7 +78,7 @@ public class PlayerPickActivity extends BaseActivity {
         player4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[3]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
                 setResult(Activity.RESULT_OK, resultIntent);
@@ -173,7 +89,7 @@ public class PlayerPickActivity extends BaseActivity {
         player5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[4]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
                 setResult(Activity.RESULT_OK, resultIntent);
@@ -249,5 +165,110 @@ public class PlayerPickActivity extends BaseActivity {
                 return true;
         }
         return false;
+    }
+
+    private void choose_player_database_from_received_position(String position){
+        switch (position){
+            case "any":
+                choose_5_random_players(all_cards);
+                break;
+
+            case "defence":
+                choose_5_random_players(def_cards);
+                break;
+
+            case "midfield":
+                choose_5_random_players(mid_cards);
+                break;
+
+            case "attack":
+                choose_5_random_players(att_cards);
+                break;
+
+            case "gk":
+                choose_5_random_players(gk_cards);
+                break;
+
+            case "st":
+                choose_5_random_players(st_cards);
+                break;
+
+            case "lw":
+                choose_5_random_players(lw_cards);
+                break;
+
+            case "rw":
+                choose_5_random_players(rw_cards);
+                break;
+
+            case "cf":
+                choose_5_random_players(cf_cards);
+                break;
+
+            case "lf":
+                choose_5_random_players(lf_cards);
+                break;
+
+            case "rf":
+                choose_5_random_players(rf_cards);
+                break;
+
+            case "lm":
+                choose_5_random_players(lm_cards);
+                break;
+
+            case "cm":
+                choose_5_random_players(cm_cards);
+                break;
+
+            case "rcm":
+                choose_5_random_players(cm_cards);
+                break;
+
+            case "lcm":
+                choose_5_random_players(cm_cards);
+                break;
+
+            case "rm":
+                choose_5_random_players(rm_cards);
+                break;
+
+            case "cam":
+                choose_5_random_players(cam_cards);
+                break;
+
+            case "cdm":
+                choose_5_random_players(cdm_cards);
+                break;
+
+            case "lb":
+                choose_5_random_players(lb_cards);
+                break;
+
+            case "rb":
+                choose_5_random_players(rb_cards);
+                break;
+
+            case "cb":
+                choose_5_random_players(cb_cards);
+                break;
+
+            case "rcb":
+                choose_5_random_players(cb_cards);
+                break;
+
+            case "lcb":
+                choose_5_random_players(cb_cards);
+                break;
+
+            case "lwb":
+                choose_5_random_players(lwb_cards);
+                break;
+
+            case "rwb":
+                choose_5_random_players(rwb_cards);
+                break;
+        }
+
     }
 }
