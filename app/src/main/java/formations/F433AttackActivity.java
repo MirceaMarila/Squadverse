@@ -30,6 +30,8 @@ public class F433AttackActivity extends BaseActivity {
     HashMap<String, String> position_takers = new HashMap<>();
     HashMap<String, Integer> nr_of_links = new HashMap<>();
     public static final int REQUEST_CODE = 1;
+    boolean swap = false;
+    String swap_position_1, swap_position_2;
 
 
     @Override
@@ -294,6 +296,66 @@ public class F433AttackActivity extends BaseActivity {
                 case "gk":
                     id = getId(player, R.drawable.class);
                     card_gk.setBackgroundResource(id);
+                    break;
+
+                case "sub1":
+                     id = getId(player, R.drawable.class);
+                    sub1.setBackgroundResource(id);
+                    break;
+
+                case "sub2":
+                     id = getId(player, R.drawable.class);
+                    sub2.setBackgroundResource(id);
+                    break;
+
+                case "sub3":
+                     id = getId(player, R.drawable.class);
+                    sub3.setBackgroundResource(id);
+                    break;
+
+                case "sub4":
+                     id = getId(player, R.drawable.class);
+                    sub4.setBackgroundResource(id);
+                    break;
+
+                case "sub5":
+                     id = getId(player, R.drawable.class);
+                    sub5.setBackgroundResource(id);
+                    break;
+
+                case "sub6":
+                     id = getId(player, R.drawable.class);
+                    sub6.setBackgroundResource(id);
+                    break;
+
+                case "sub7":
+                     id = getId(player, R.drawable.class);
+                    sub7.setBackgroundResource(id);
+                    break;
+
+                case "res1":
+                     id = getId(player, R.drawable.class);
+                    res1.setBackgroundResource(id);
+                    break;
+
+                case "res2":
+                     id = getId(player, R.drawable.class);
+                    res2.setBackgroundResource(id);
+                    break;
+
+                case "res3":
+                     id = getId(player, R.drawable.class);
+                    res3.setBackgroundResource(id);
+                    break;
+
+                case "res4":
+                     id = getId(player, R.drawable.class);
+                    res4.setBackgroundResource(id);
+                    break;
+
+                case "res5":
+                     id = getId(player, R.drawable.class);
+                    res5.setBackgroundResource(id);
                     break;
             }
         }
@@ -998,6 +1060,27 @@ public class F433AttackActivity extends BaseActivity {
         chm_rcb.setText(String.valueOf(get_int_chemistry_from_double_chemistry(rcb_chm)));
         chm_rb.setText(String.valueOf(get_int_chemistry_from_double_chemistry(rb_chm)));
         chm_gk.setText(String.valueOf(get_int_chemistry_from_double_chemistry(gk_chm)));
+
+        if(chm_lw.getText().toString().equals("10") && chm_lw.getCurrentTextColor() == Color.YELLOW)
+            chm_lw.setText("9");
+        if(chm_st.getText().toString().equals("10") && chm_st.getCurrentTextColor() == Color.YELLOW)
+            chm_st.setText("9");
+        if(chm_rw.getText().toString().equals("10") && chm_rw.getCurrentTextColor() == Color.YELLOW)
+            chm_rw.setText("9");
+        if(chm_lcm.getText().toString().equals("10") && chm_lcm.getCurrentTextColor() == Color.YELLOW)
+            chm_lcm.setText("9");
+        if(chm_cam.getText().toString().equals("10") && chm_cam.getCurrentTextColor() == Color.YELLOW)
+            chm_cam.setText("9");
+        if(chm_rcm.getText().toString().equals("10") && chm_rcm.getCurrentTextColor() == Color.YELLOW)
+            chm_rcm.setText("9");
+        if(chm_lb.getText().toString().equals("10") && chm_lb.getCurrentTextColor() == Color.YELLOW)
+            chm_lb.setText("9");
+        if(chm_rb.getText().toString().equals("10") && chm_rb.getCurrentTextColor() == Color.YELLOW)
+            chm_rb.setText("9");
+        if(chm_lcb.getText().toString().equals("10") && chm_lcb.getCurrentTextColor() == Color.YELLOW)
+            chm_lcb.setText("9");
+        if(chm_rcb.getText().toString().equals("10") && chm_rcb.getCurrentTextColor() == Color.YELLOW)
+            chm_rcb.setText("9");
     }
 
     private int get_int_chemistry_from_double_chemistry(double chem){
@@ -1194,301 +1277,980 @@ public class F433AttackActivity extends BaseActivity {
         card_lw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String picked_players_string = get_picked_players_string();
-
-                Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
-                intent.putExtra("position", "lw");
-                intent.putExtra("picked_players", picked_players_string);
-                intent.putExtra("variabila", "card_lw");
-                startActivityForResult(intent , REQUEST_CODE);
+                if(position_takers.containsKey("lw"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_lw.getBackground().setAlpha(100);
+                        swap_position_1 = "lw";
+                    }
+                    else
+                        {
+                        if(swap_position_1.equals("lw"))
+                        {
+                            card_lw.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                            {
+                            swap_position_2 = "lw";
+                            swap_selected_players();
+                            }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String picked_players_string = get_picked_players_string();
+                        Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
+                        intent.putExtra("position", "lw");
+                        intent.putExtra("picked_players", picked_players_string);
+                        intent.putExtra("variabila", "card_lw");
+                        startActivityForResult(intent, REQUEST_CODE);
+                    }
+                }
             }
         });
 
         card_st.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("st"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_st.getBackground().setAlpha(100);
+                        swap_position_1 = "st";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("st"))
+                        {
+                            card_st.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "st";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "st");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_st");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_rw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("rw"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_rw.getBackground().setAlpha(100);
+                        swap_position_1 = "rw";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("rw"))
+                        {
+                            card_rw.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "rw";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "rw");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rw");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_cam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("cam"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_cam.getBackground().setAlpha(100);
+                        swap_position_1 = "cam";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("cam"))
+                        {
+                            card_cam.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "cam";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "cam");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_cam");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_lcm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("lcm"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_lcm.getBackground().setAlpha(100);
+                        swap_position_1 = "lcm";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("lcm"))
+                        {
+                            card_lcm.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "lcm";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "lcm");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lcm");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_rcm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("rcm"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_rcm.getBackground().setAlpha(100);
+                        swap_position_1 = "rcm";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("rcm"))
+                        {
+                            card_rcm.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "rcm";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "rcm");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rcm");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_lb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("lb"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_lb.getBackground().setAlpha(100);
+                        swap_position_1 = "lb";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("lb"))
+                        {
+                            card_lb.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "lb";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "lb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lb");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_lcb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("lcb"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_lcb.getBackground().setAlpha(100);
+                        swap_position_1 = "lcb";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("lcb"))
+                        {
+                            card_lcb.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "lcb";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "lcb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lcb");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_rcb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("rcb"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_rcb.getBackground().setAlpha(100);
+                        swap_position_1 = "rcb";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("rcb"))
+                        {
+                            card_rcb.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "rcb";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "rcb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rcb");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_rb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("rb"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_rb.getBackground().setAlpha(100);
+                        swap_position_1 = "rb";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("rb"))
+                        {
+                            card_rb.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "rb";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "rb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rb");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         card_gk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("gk"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        card_gk.getBackground().setAlpha(100);
+                        swap_position_1 = "gk";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("gk"))
+                        {
+                            card_gk.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "gk";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "gk");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_gk");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub1"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub1.getBackground().setAlpha(100);
+                        swap_position_1 = "sub1";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub1"))
+                        {
+                            sub1.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub1";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "gk");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub1");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub2"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub2.getBackground().setAlpha(100);
+                        swap_position_1 = "sub2";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub2"))
+                        {
+                            sub2.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub2";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "defence");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub2");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub3"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub3.getBackground().setAlpha(100);
+                        swap_position_1 = "sub3";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub3"))
+                        {
+                            sub3.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub3";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "defence");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub3");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub4"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub4.getBackground().setAlpha(100);
+                        swap_position_1 = "sub4";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub4"))
+                        {
+                            sub4.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub4";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "midfield");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub4");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub5"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub5.getBackground().setAlpha(100);
+                        swap_position_1 = "sub5";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub5"))
+                        {
+                            sub5.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub5";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "midfield");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub5");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub6"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub6.getBackground().setAlpha(100);
+                        swap_position_1 = "sub6";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub6"))
+                        {
+                            sub6.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub6";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "attack");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub6");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         sub7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("sub7"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        sub7.getBackground().setAlpha(100);
+                        swap_position_1 = "sub7";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("sub7"))
+                        {
+                            sub7.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "sub7";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "attack");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub7");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         res1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("res1"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        res1.getBackground().setAlpha(100);
+                        swap_position_1 = "res1";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("res1"))
+                        {
+                            res1.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "res1";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res1");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         res2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("res2"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        res2.getBackground().setAlpha(100);
+                        swap_position_1 = "res2";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("res2"))
+                        {
+                            res2.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "res2";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res2");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         res3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("res3"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        res3.getBackground().setAlpha(100);
+                        swap_position_1 = "res3";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("res3"))
+                        {
+                            res3.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "res3";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res3");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         res4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("res4"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        res4.getBackground().setAlpha(100);
+                        swap_position_1 = "res4";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("res4"))
+                        {
+                            res4.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "res4";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res4");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
 
         res5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(position_takers.containsKey("res5"))
+                {
+                    if(!swap)
+                    {
+                        swap = true;
+                        res5.getBackground().setAlpha(100);
+                        swap_position_1 = "res5";
+                    }
+                    else
+                    {
+                        if(swap_position_1.equals("res5"))
+                        {
+                            res5.getBackground().setAlpha(255);
+                            swap = false;
+                        }
+                        else
+                        {
+                            swap_position_2 = "res5";
+                            swap_selected_players();
+                        }
+                    }
+                }
+                else {
+                    if (swap) {
+                        Toast.makeText(F433AttackActivity.this, "You can't swap with an empty position!", Toast.LENGTH_SHORT).show();
+                    } else {
                 String picked_players_string = get_picked_players_string();
-
                 Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res5");
                 startActivityForResult(intent , REQUEST_CODE);
-            }
+            }}}
         });
     }
 
+    private void swap_selected_players(){
+        String aux = position_takers.get(swap_position_1);
+        position_takers.put(swap_position_1, position_takers.get(swap_position_2));
+        position_takers.put(swap_position_2, aux);
+        swap = false;
+        switch (swap_position_1){
+            case "st":
+                card_st.getBackground().setAlpha(255);
+                break;
+
+            case "cam":
+                card_cam.getBackground().setAlpha(255);
+                break;
+
+            case "lw":
+                card_lw.getBackground().setAlpha(255);
+                break;
+
+            case "rw":
+                card_rw.getBackground().setAlpha(255);
+                break;
+
+            case "lcm":
+                card_lcm.getBackground().setAlpha(255);
+                break;
+
+            case "rcm":
+                card_rcm.getBackground().setAlpha(255);
+                break;
+
+            case "lb":
+                card_lb.getBackground().setAlpha(255);
+                break;
+
+            case "rb":
+                card_rb.getBackground().setAlpha(255);
+                break;
+
+            case "lcb":
+                card_lcb.getBackground().setAlpha(255);
+                break;
+
+            case "rcb":
+                card_rcb.getBackground().setAlpha(255);
+                break;
+
+            case "gk":
+                card_gk.getBackground().setAlpha(255);
+                break;
+
+            case "sub1":
+                sub1.getBackground().setAlpha(255);
+                break;
+
+            case "sub2":
+                sub2.getBackground().setAlpha(255);
+                break;
+
+            case "sub3":
+                sub3.getBackground().setAlpha(255);
+                break;
+
+            case "sub4":
+                sub4.getBackground().setAlpha(255);
+                break;
+
+            case "sub5":
+                sub5.getBackground().setAlpha(255);
+                break;
+
+            case "sub6":
+                sub6.getBackground().setAlpha(255);
+                break;
+
+            case "sub7":
+                sub7.getBackground().setAlpha(255);
+                break;
+
+            case "res1":
+                res1.getBackground().setAlpha(255);
+                break;
+
+            case "res2":
+                res2.getBackground().setAlpha(255);
+                break;
+
+            case "res3":
+                res3.getBackground().setAlpha(255);
+                break;
+
+            case "res4":
+                res4.getBackground().setAlpha(255);
+                break;
+
+            case "res5":
+                res5.getBackground().setAlpha(255);
+                break;
+
+        }
+        put_position_takers_in_field();
+
+    }
 }

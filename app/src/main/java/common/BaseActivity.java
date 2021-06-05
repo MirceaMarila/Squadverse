@@ -161,22 +161,23 @@ public class BaseActivity extends AppCompatActivity {
 
     private void generate_formation_and_compatible_pisitions_maps(){
 
-        String[] pozitii_compatibile_st = {"cf", "rf", "lf"};
-        String[] pozitii_compatibile_lw = {"lf", "lm", "lwb"};
-        String[] pozitii_compatibile_rw = {"rf", "rm", "rwb"};
-        String[] pozitii_compatibile_cam = {"cf", "cm", "cdm"};
-        String[] pozitii_compatibile_cm = {"cam", "cdm", "lm", "rm"};
-        String[] pozitii_compatibile_lb = {"cb", "lm", "lwb"};
-        String[] pozitii_compatibile_rb = {"cb", "rm", "rwb"};
-        String[] pozitii_compatibile_cb = {"lb", "rb", "cdm"};
-        String[] pozitii_compatibile_cf = {"lf", "rf", "cam", "st"};
-        String[] pozitii_compatibile_lf = {"rf", "cf", "st", "lw"};
-        String[] pozitii_compatibile_rf = {"lf", "cf", "st", "rw"};
-        String[] pozitii_compatibile_lm = {"lb", "lw", "cm"};
-        String[] pozitii_compatibile_rm = {"rb", "rw", "cm"};
-        String[] pozitii_compatibile_cdm = {"cb", "cam", "cm"};
-        String[] pozitii_compatibile_lwb = {"lb", "lw"};
-        String[] pozitii_compatibile_rwb = {"rb", "rw"};
+        String[] pozitii_compatibile_st = {"st", "cf", "rf", "lf"};
+        String[] pozitii_compatibile_lw = {"lw", "lf", "lm", "lwb", "rw"};
+        String[] pozitii_compatibile_rw = {"rw", "rf", "rm", "rwb", "lw"};
+        String[] pozitii_compatibile_cam = {"cam", "cf", "cm", "cdm"};
+        String[] pozitii_compatibile_cm = {"cm", "cam", "cdm", "lm", "rm"};
+        String[] pozitii_compatibile_lb = {"lb", "cb", "lm", "lwb", "rb"};
+        String[] pozitii_compatibile_rb = {"rb", "cb", "rm", "rwb", "lb"};
+        String[] pozitii_compatibile_cb = {"cb", "lb", "rb", "cdm"};
+        String[] pozitii_compatibile_cf = {"cf", "lf", "rf", "cam", "st"};
+        String[] pozitii_compatibile_lf = {"lf", "rf", "cf", "st", "lw"};
+        String[] pozitii_compatibile_rf = {"rf", "lf", "cf", "st", "rw"};
+        String[] pozitii_compatibile_lm = {"lm", "lb", "lw", "cm", "rm"};
+        String[] pozitii_compatibile_rm = {"rm", "rb", "rw", "cm", "lm"};
+        String[] pozitii_compatibile_cdm = {"cdm", "cb", "cam", "cm"};
+        String[] pozitii_compatibile_lwb = {"lwb", "lb", "lw"};
+        String[] pozitii_compatibile_rwb = {"rwb", "rb", "rw"};
+        String[] pozitii_compatibile_gk = {"gk"};
 
         pozitii_compatibile.put("st", pozitii_compatibile_st);
         pozitii_compatibile.put("lw", pozitii_compatibile_lw);
@@ -194,6 +195,7 @@ public class BaseActivity extends AppCompatActivity {
         pozitii_compatibile.put("cdm", pozitii_compatibile_cdm);
         pozitii_compatibile.put("lwb", pozitii_compatibile_lwb);
         pozitii_compatibile.put("rwb", pozitii_compatibile_rwb);
+        pozitii_compatibile.put("gk", pozitii_compatibile_gk);
 
 
         String[] f_433_attack_positions = {"lw", "st", "rw", "cam", "cm", "lb", "cb", "rb", "gk"};
