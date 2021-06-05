@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.squadverse.BugReportActivity;
 import com.example.squadverse.FeedbackActivity;
 import com.example.squadverse.R;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -83,6 +85,16 @@ public class F433AttackActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         assign_action_to_every_image_button();
+
+        try{
+            String bool = getIntent().getStringExtra("peak");
+            Toast.makeText(F433AttackActivity.this, bool, Toast.LENGTH_SHORT).show();
+
+        }
+        catch (Exception e){
+            //nothing
+        }
+
     }
 
     @Override
@@ -90,10 +102,38 @@ public class F433AttackActivity extends BaseActivity {
         try {
             super.onActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
-                String pick_Result = data.getStringExtra("pick_result");
-                String variabila = data.getStringExtra("variabila");
-                put_picked_player_in_team(variabila, pick_Result);
+            if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK)
+            {
+                String peak = data.getStringExtra("peak");
+                if(peak.equals("false"))
+                {
+                    enable_all_buttons();
+                    String pick_Result = data.getStringExtra("pick_result");
+                    String variabila = data.getStringExtra("variabila");
+                    put_picked_player_in_team(variabila, pick_Result);
+                }
+                else{
+                    disable_all_buttons();
+                    String pick_Result = data.getStringExtra("pick_result");
+                    String variabila = data.getStringExtra("variabila");
+                    String pozitia = data.getStringExtra("pozitia");
+                    String players_string = data.getStringExtra("players_string");
+                    put_picked_player_in_team(variabila, pick_Result);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            String picked_players_string = get_picked_players_string();
+                            Intent intent = new Intent(F433AttackActivity.this, PlayerPickActivity.class);
+                            intent.putExtra("position", pozitia);
+                            intent.putExtra("picked_players", picked_players_string);
+                            intent.putExtra("variabila", variabila);
+                            intent.putExtra("players_bool", "true");
+                            intent.putExtra("players_string", players_string);
+                            startActivityForResult(intent, REQUEST_CODE);
+                        }
+                    }, 3000);
+                }
             }
         } catch (Exception ex) {
             Toast.makeText(F433AttackActivity.this, ex.toString(),
@@ -1308,6 +1348,7 @@ public class F433AttackActivity extends BaseActivity {
                         intent.putExtra("position", "lw");
                         intent.putExtra("picked_players", picked_players_string);
                         intent.putExtra("variabila", "card_lw");
+                        intent.putExtra("players_bool", "false");
                         startActivityForResult(intent, REQUEST_CODE);
                     }
                 }
@@ -1348,6 +1389,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "st");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_st");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1386,6 +1428,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "rw");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rw");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1424,6 +1467,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "cam");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_cam");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1462,6 +1506,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "lcm");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lcm");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1500,6 +1545,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "rcm");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rcm");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1538,6 +1584,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "lb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lb");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1576,6 +1623,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "lcb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_lcb");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1614,6 +1662,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "rcb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rcb");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1652,6 +1701,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "rb");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_rb");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1690,6 +1740,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "gk");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "card_gk");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1728,6 +1779,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "gk");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub1");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1766,6 +1818,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "defence");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub2");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1804,6 +1857,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "defence");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub3");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1842,6 +1896,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "midfield");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub4");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1880,6 +1935,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "midfield");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub5");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1918,6 +1974,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "attack");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub6");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1956,6 +2013,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "attack");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "sub7");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -1994,6 +2052,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res1");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -2032,6 +2091,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res2");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -2070,6 +2130,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res3");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -2108,6 +2169,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res4");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -2146,6 +2208,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("position", "any");
                 intent.putExtra("picked_players", picked_players_string);
                 intent.putExtra("variabila", "res5");
+                intent.putExtra("players_bool", "false");
                 startActivityForResult(intent , REQUEST_CODE);
             }}}
         });
@@ -2252,5 +2315,57 @@ public class F433AttackActivity extends BaseActivity {
         }
         put_position_takers_in_field();
 
+    }
+
+    private void disable_all_buttons(){
+        card_lw.setEnabled(false);
+        card_st.setEnabled(false);
+        card_rw.setEnabled(false);
+        card_cam.setEnabled(false);
+        card_lcm.setEnabled(false);
+        card_rcm.setEnabled(false);
+        card_lb.setEnabled(false);
+        card_lcb.setEnabled(false);
+        card_rcb.setEnabled(false);
+        card_rb.setEnabled(false);
+        card_gk.setEnabled(false);
+        sub1.setEnabled(false);
+        sub2.setEnabled(false);
+        sub3.setEnabled(false);
+        sub4.setEnabled(false);
+        sub5.setEnabled(false);
+        sub6.setEnabled(false);
+        sub7.setEnabled(false);
+        res1.setEnabled(false);
+        res2.setEnabled(false);
+        res3.setEnabled(false);
+        res4.setEnabled(false);
+        res5.setEnabled(false);
+    }
+
+    private void enable_all_buttons(){
+        card_lw.setEnabled(true);
+        card_st.setEnabled(true);
+        card_rw.setEnabled(true);
+        card_cam.setEnabled(true);
+        card_lcm.setEnabled(true);
+        card_rcm.setEnabled(true);
+        card_lb.setEnabled(true);
+        card_lcb.setEnabled(true);
+        card_rcb.setEnabled(true);
+        card_rb.setEnabled(true);
+        card_gk.setEnabled(true);
+        sub1.setEnabled(true);
+        sub2.setEnabled(true);
+        sub3.setEnabled(true);
+        sub4.setEnabled(true);
+        sub5.setEnabled(true);
+        sub6.setEnabled(true);
+        sub7.setEnabled(true);
+        res1.setEnabled(true);
+        res2.setEnabled(true);
+        res3.setEnabled(true);
+        res4.setEnabled(true);
+        res5.setEnabled(true);
     }
 }
