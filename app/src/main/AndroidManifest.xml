@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Squadverse.Fullscreen">
         <activity
-            android:name="draft.ManagerPickActivity"
+            android:name="draft.SingleResultsActivity"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name="draft.ManagerPickActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name="draft.PlayerPickActivity"
             android:screenOrientation="landscape" />

@@ -13,6 +13,21 @@
         android:layout_height="match_parent"
         android:background="@drawable/field">
 
+        <Button
+            android:id="@+id/submit_btn_433_att"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chem_433_att"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-250dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/fundal_btn_meniu"
+            android:text="SUBMIT"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/link_lw_st_433_att"
             android:layout_width="156dp"
@@ -244,17 +259,17 @@
 
         <ImageView
             android:id="@+id/link_lcb_rcb_433_att"
-            android:layout_width="153dp"
-            android:layout_height="235dp"
+            android:layout_width="144dp"
+            android:layout_height="233dp"
             android:layout_alignStart="@+id/LL_lcb_433_att"
             android:layout_alignLeft="@+id/LL_lcb_433_att"
             android:layout_alignTop="@+id/LL_lcb_433_att"
             android:layout_alignEnd="@+id/LL_rcb_433_att"
             android:layout_alignRight="@+id/LL_rcb_433_att"
             android:layout_alignBottom="@+id/LL_lw_433_att"
-            android:layout_marginStart="67dp"
-            android:layout_marginLeft="67dp"
-            android:layout_marginTop="-39dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="-36dp"
             android:layout_marginEnd="84dp"
             android:layout_marginRight="84dp"
             android:layout_marginBottom="-266dp"

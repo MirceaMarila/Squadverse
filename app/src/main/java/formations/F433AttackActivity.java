@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +14,11 @@ import android.widget.Toast;
 
 import com.example.squadverse.BugReportActivity;
 import com.example.squadverse.FeedbackActivity;
+import com.example.squadverse.LoginActivity;
+import com.example.squadverse.MainActivity;
 import com.example.squadverse.R;
+import com.example.squadverse.RegisterActivity;
+import com.example.squadverse.SelectAvatarActivity;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
@@ -25,12 +30,14 @@ import common.BaseActivity;
 import draft.CaptainActivity;
 import draft.ManagerPickActivity;
 import draft.PlayerPickActivity;
+import draft.SingleResultsActivity;
 
 public class F433AttackActivity extends BaseActivity {
 
     TextView slide_title, rating, chemistry, chm_lw, chm_st, chm_rw, chm_cam, chm_lcm, chm_rcm, chm_lb, chm_lcb, chm_rcb, chm_rb, chm_gk;
     ImageView link_lw_st, link_rw_st, link_cam_st, link_lw_lcm, link_rw_rcm, link_cam_lcm, link_cam_rcm, link_rw_rb, link_lw_lb, link_lcm_lb, link_rcm_rb, link_rcb_rb, link_lcb_lb, link_lcb_rcb, link_rcm_rcb, link_lcm_lcb, link_lcb_gk, link_rcb_gk;
     ImageButton card_lw, card_st, card_rw, card_cam, card_lcm, card_rcm, card_lb, card_lcb, card_rcb, card_rb, card_gk, sub1, sub2, sub3, sub4, sub5, sub6, sub7, res1, res2, res3, res4, res5, card_manager;
+    Button submit;
     HashMap<String, String> position_takers = new HashMap<>();
     String manager = null;
     HashMap<String, Integer> nr_of_links = new HashMap<>();
@@ -179,6 +186,8 @@ public class F433AttackActivity extends BaseActivity {
         link_lcm_lcb = findViewById(R.id.link_lcm_lcb_433_att);
         link_lcb_gk = findViewById(R.id.link_lcb_gk_433_att);
         link_rcb_gk = findViewById(R.id.link_rcb_gk_433_att);
+        submit = findViewById(R.id.submit_btn_433_att);
+        submit.setVisibility(View.GONE);
 
         link_lw_st.setColorFilter(Color.argb(200, 255, 0, 0));
         link_rw_st.setColorFilter(Color.argb(200, 255, 0, 0));
@@ -1441,6 +1450,7 @@ public class F433AttackActivity extends BaseActivity {
                 id = getId(pick_result, R.drawable.class);
                 card_manager.setBackgroundResource(id);
                 manager = pick_result;
+                submit.setVisibility(View.VISIBLE);
                 break;
         }
         put_position_takers_in_field();
@@ -2358,9 +2368,9 @@ public class F433AttackActivity extends BaseActivity {
         card_manager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (position_takers.size() < 23)
-//                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
-//                else {
+                if (position_takers.size() < 23)
+                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
+                else {
 
                     if (manager != null)
                         Toast.makeText(F433AttackActivity.this, "You already chose a manager!", Toast.LENGTH_SHORT).show();
@@ -2372,7 +2382,23 @@ public class F433AttackActivity extends BaseActivity {
                         intent.putExtra("managers_bool", "false");
                         startActivityForResult(intent, REQUEST_CODE);
                     }
-//                }
+                }
+            }
+        });
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String best_players = get_best_cards();
+                String[] best_player_list = best_players.split("@", 4);
+                Intent intent = new Intent(F433AttackActivity.this, SingleResultsActivity.class);
+                intent.putExtra("best_defender", best_player_list[0]);
+                intent.putExtra("best_midfielder", best_player_list[1]);
+                intent.putExtra("best_attacker", best_player_list[2]);
+                intent.putExtra("rating", rating.getText().toString());
+                intent.putExtra("chemistry", chemistry.getText().toString());
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -2769,5 +2795,46 @@ public class F433AttackActivity extends BaseActivity {
         res3.getBackground().setAlpha(255);
         res4.getBackground().setAlpha(255);
         res5.getBackground().setAlpha(255);
+    }
+
+    private String get_best_cards(){
+        int max_rating_def = 0, max_rating_mid = 0, max_rating_att = 0;
+        String best_def = null, best_mid= null, best_att= null;
+        for(String key: position_takers.keySet()){
+            switch (key) {
+                case "lw":
+                case "st":
+                case "rw":
+                    if(Integer.parseInt(get_player_rating_from_name(position_takers.get(key))) > max_rating_att)
+                    {
+                        max_rating_att = Integer.parseInt(get_player_rating_from_name(position_takers.get(key)));
+                        best_att = position_takers.get(key);
+                    }
+                    break;
+                case "cam":
+                case "rcm":
+                case "lcm":
+                    if(Integer.parseInt(get_player_rating_from_name(position_takers.get(key))) > max_rating_mid)
+                    {
+                        max_rating_mid = Integer.parseInt(get_player_rating_from_name(position_takers.get(key)));
+                        best_mid = position_takers.get(key);
+                    }
+                    break;
+                case "lb":
+                case "lcb":
+                case "rcb":
+                case "rb":
+                case "gk":
+                    if(Integer.parseInt(get_player_rating_from_name(position_takers.get(key))) > max_rating_def)
+                    {
+                        max_rating_def = Integer.parseInt(get_player_rating_from_name(position_takers.get(key)));
+                        best_def = position_takers.get(key);
+                    }
+                    break;
+            }
+        }
+        String rezultat = best_def + "@" + best_mid + "@" + best_att;
+
+        return rezultat;
     }
 }
