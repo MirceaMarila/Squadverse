@@ -60,7 +60,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[0]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "false");
+                resultIntent.putExtra("peek", "false");
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -72,7 +72,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[0]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "true");
+                resultIntent.putExtra("peek", "true");
                 resultIntent.putExtra("pozitia", pozitia);
                 String chosen_players_string = "";
                 for(String key : player_pick) {
@@ -94,7 +94,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[1]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "false");
+                resultIntent.putExtra("peek", "false");
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -106,7 +106,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[1]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "true");
+                resultIntent.putExtra("peek", "true");
                 resultIntent.putExtra("pozitia", pozitia);
                 String chosen_players_string = "";
                 for(String key : player_pick) {
@@ -128,7 +128,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[2]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "false");
+                resultIntent.putExtra("peek", "false");
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -140,7 +140,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[2]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "true");
+                resultIntent.putExtra("peek", "true");
                 resultIntent.putExtra("pozitia", pozitia);
                 String chosen_players_string = "";
                 for(String key : player_pick) {
@@ -162,7 +162,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[3]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "false");
+                resultIntent.putExtra("peek", "false");
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -174,7 +174,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[3]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "true");
+                resultIntent.putExtra("peek", "true");
                 resultIntent.putExtra("pozitia", pozitia);
                 String chosen_players_string = "";
                 for(String key : player_pick) {
@@ -196,7 +196,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[4]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "false");
+                resultIntent.putExtra("peek", "false");
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -208,7 +208,7 @@ public class PlayerPickActivity extends BaseActivity {
                 Intent resultIntent = getIntent();
                 resultIntent.putExtra("pick_result", (String) player_pick.toArray()[4]);
                 resultIntent.putExtra("variabila", getIntent().getStringExtra("variabila"));
-                resultIntent.putExtra("peak", "true");
+                resultIntent.putExtra("peek", "true");
                 resultIntent.putExtra("pozitia", pozitia);
                 String chosen_players_string = "";
                 for(String key : player_pick) {
