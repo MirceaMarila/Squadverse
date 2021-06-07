@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_fundal_landscape"
+    android:background="@drawable/login_fundal_2"
     tools:context=".LoginActivity">
 
     <TextView
@@ -58,7 +58,7 @@
         android:layout_marginTop="40dp"
         android:text="Username:"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/username_login"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -67,7 +67,7 @@
     <EditText
         android:id="@+id/username_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -80,17 +80,17 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
         android:text="Password: "
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/password_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="48dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -121,10 +121,10 @@
         android:text="BACK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
-        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/sign_in_button"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintVertical_bias="0.664" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"

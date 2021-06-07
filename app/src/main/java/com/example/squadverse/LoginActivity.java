@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 import common.BaseActivity;
 import information.UserInformation;
 
@@ -111,7 +113,7 @@ public class LoginActivity extends BaseActivity {
                             public void onSuccess(AuthResult authResult) {
 
                                 Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class)); // TODO: change this activity
+                                startActivity(new Intent(LoginActivity.this, GameModesActivity.class));
                                 finish();
                             }
                         });
@@ -182,12 +184,57 @@ public class LoginActivity extends BaseActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            startActivity(new Intent(LoginActivity.this, MainActivity.class)); //TODO: change this activity
+            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+            String google_username = acct.getDisplayName();
+            String google_email = acct.getEmail();
+
+            check_username_already_exists_and_register_if_not(google_username, google_email);
+
+            startActivity(new Intent(LoginActivity.this, GameModesActivity.class));
+            finish();
         } catch (ApiException e) {
 
             Log.w("error:::::::", "signInResult:failed code=" + e.getStatusCode());
 
         }
+    }
+
+
+    private void add_user_to_database(String username, String email){
+        HashMap<String, Object> map=new HashMap<>();
+        map.put("Username", username);
+        map.put("Email", email);
+        map.put("Password", "google_account");
+        map.put("Avatar", "google_account_icon");
+
+        FirebaseDatabase.getInstance().getReference().child("User_profile").push().updateChildren(map);
+    }
+
+    private void check_username_already_exists_and_register_if_not(String username, String email) {
+        final boolean[] flag = {false};
+        FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    UserInformation ui = snapshot.getValue(UserInformation.class);
+                    String db_username = ui.getUsername();
+                    if (db_username.equals(username)) {
+                        flag[0] = true;
+                        break;
+                    }
+                }
+                if (!flag[0]) {
+                    add_user_to_database(username, email);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+
     }
 
 

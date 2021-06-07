@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import common.BaseActivity;
 import draft.FormationsActivity;
 
@@ -13,6 +18,8 @@ public class MainActivity extends BaseActivity {
 
     // variabile
     ImageButton register, login, build_a_draft, bug_reporting, feedback;
+    FirebaseUser user;
+    GoogleSignInAccount acct;
 
 
     @Override
@@ -26,20 +33,23 @@ public class MainActivity extends BaseActivity {
         bug_reporting = findViewById(R.id.bug_report_btn);
         feedback = findViewById(R.id.feedback_btn);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        acct = GoogleSignIn.getLastSignedInAccount(this);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SelectAvatarActivity.class));
-                finish();
             }
         });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
+                if(user != null || acct != null)
+                    startActivity(new Intent(MainActivity.this, GameModesActivity.class));
+                else
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
 
@@ -47,7 +57,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FormationsActivity.class));
-                finish();
             }
         });
 
@@ -55,7 +64,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, BugReportActivity.class));
-                finish();
             }
         });
 
@@ -63,8 +71,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
-                finish();
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        acct = GoogleSignIn.getLastSignedInAccount(this);
     }
 }

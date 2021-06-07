@@ -1,9 +1,12 @@
 package com.example.squadverse;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,9 +27,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.security.CryptoPrimitive;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
+
 import java.util.HashMap;
 
 import common.BaseActivity;
+import game_modes.ProfileActivity;
 import information.UserInformation;
 
 import static draft.FormationsActivity.getId;
@@ -89,13 +107,17 @@ public class RegisterActivity extends BaseActivity {
     private void registerUser(String email, String password, String username) {
 
         auth_register.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this,new OnCompleteListener<AuthResult>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(RegisterActivity.this,"Registering user successful!",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterActivity.this, MainActivity.class)); // TODO - tre sa schimb activitatea
-                    finish();
+                    signOut();
                     add_user_to_database(username, email, password);
+                    login_user(username, password);
+
+                    Toast.makeText(RegisterActivity.this,"Registering user successful!",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this, GameModesActivity.class));
+                    finish();
                 }
                 else {
                     Toast.makeText(RegisterActivity.this,"Registration failed! \n There might be already an account with this email.",Toast.LENGTH_SHORT).show();
@@ -105,11 +127,17 @@ public class RegisterActivity extends BaseActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void add_user_to_database(String username, String email, String password){
         HashMap<String, Object> map=new HashMap<>();
         map.put("Username", username);
         map.put("Email", email);
-        map.put("Password", password);
+        try {
+            map.put("Password", criptare_parola(password));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            map.put("Password", "hashed_password");
+        }
         map.put("Avatar", avatar_name);
 
         FirebaseDatabase.getInstance().getReference().child("User_profile").push().updateChildren(map);
@@ -144,6 +172,98 @@ public class RegisterActivity extends BaseActivity {
 
             }
         });
+
+    }
+
+    private void signOut() {
+        try{
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+            GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+            mGoogleSignInClient.signOut()
+                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            // nothing
+                        }
+                    });
+
+
+        }catch(Exception error1) {
+            // nothing
+        }
+
+        try{
+            FirebaseAuth.getInstance().signOut();
+
+        }catch(Exception error1) {
+            // nothing
+        }
+
+    }
+
+    private void login_user(String username, String password) {
+        final boolean[] acc_found = {false};
+
+        //get the email from database using username to identify account and log in the user
+        FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    UserInformation ui = snapshot.getValue(UserInformation.class);
+                    String db_username = ui.getUsername();
+                    String db_email = ui.getEmail();
+
+                    if (db_username.equals(username)) {
+                        acc_found[0] = true;
+                        FirebaseAuth auth_register = FirebaseAuth.getInstance();
+                        auth_register.signInWithEmailAndPassword(db_email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                            // nothing
+                            }
+                        });
+                        break;
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String criptare_parola(String parola) throws NoSuchAlgorithmException {
+
+        // salt generating
+        SecureRandom random = new SecureRandom();
+        byte[] biti = new byte[10];
+        random.nextBytes(biti);
+        Encoder encoder = Base64.getEncoder();
+        String sare = encoder.encodeToString(biti);
+
+        // transforming the password and salt in bytes
+        byte[] parola_bytes = parola.getBytes(StandardCharsets.UTF_8);
+        Decoder decoder = Base64.getDecoder();
+        byte[] sare_bytes = decoder.decode(sare);
+        byte[] sare_plus_parola_bytes = new byte[sare_bytes.length + parola_bytes.length];
+        System.arraycopy(sare_bytes, 0, sare_plus_parola_bytes, 0, sare_bytes.length);
+        System.arraycopy(parola_bytes, 0, sare_plus_parola_bytes, sare_bytes.length, parola_bytes.length);
+
+        // hashing the salt+password bytes
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] sare_parola_bytes_hashed = digest.digest(sare_plus_parola_bytes);
+
+        // returning the string result of hashed salt_password
+        return encoder.encodeToString(sare_parola_bytes_hashed);
+
 
     }
 }

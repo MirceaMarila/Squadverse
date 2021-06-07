@@ -61,8 +61,6 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "real");
                 startActivity(intent);
-                finish();
-
             }
         });
 
@@ -72,7 +70,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "barcelona");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -82,7 +80,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "atletico");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -92,7 +90,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "sevilla");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -102,7 +100,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "valencia");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -112,7 +110,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "united");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -122,7 +120,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "chelsea");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -132,7 +130,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "city");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -142,7 +140,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "spurs");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -152,7 +150,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "liverpool");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -162,7 +160,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "bayern");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -172,7 +170,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "dortmund");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -182,7 +180,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "shalke");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -192,7 +190,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "leipzig");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -202,7 +200,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "monchen");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -212,7 +210,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "juventus");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -222,7 +220,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "milan");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -232,7 +230,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "inter");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -242,7 +240,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "lazio");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -252,7 +250,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "roma");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -262,7 +260,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "psg");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -272,7 +270,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "marseille");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -282,7 +280,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "lyon");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -292,7 +290,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "monaco");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -302,7 +300,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "nice");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -312,7 +310,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "brasov");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -322,7 +320,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "steaua");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -332,7 +330,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "cfr");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -342,7 +340,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "craiova");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
@@ -352,7 +350,7 @@ public class SelectAvatarActivity extends BaseActivity {
                 Intent intent = new Intent(SelectAvatarActivity.this, RegisterActivity.class);
                 intent.putExtra("avatar", "dinamo");
                 startActivity(intent);
-                finish();
+                
             }
         });
 
