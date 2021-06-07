@@ -30,6 +30,8 @@ public class HistoryActivity extends BaseActivity {
 
         istoric = findViewById(R.id.list_view_history);
 
+        String mode = getIntent().getStringExtra("mode");
+
         final ArrayList<String> list=new ArrayList<>();
         final ArrayAdapter adapter=new ArrayAdapter<String>(this,R.layout.list_item,list);
         istoric.setAdapter(adapter);
@@ -41,8 +43,10 @@ public class HistoryActivity extends BaseActivity {
                 list.clear();
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     HistoryInformation info=snapshot.getValue(HistoryInformation.class);
-                    String txt="\nRating: " + info.getRating() + "                    Chemistry: " + info.getChemistry() + "                  Score: " + info.getScore() + "\n\nMode: " + info.getMode() + "                  DateTime: " + info.getDateTime() + "\n";
-                    list.add(txt);
+                    if(mode.equals("Singleplayer") && info.getMode().equals("Singleplayer")) {
+                        String txt = "\nRating: " + info.getRating() + "                    Chemistry: " + info.getChemistry() + "                  Score: " + info.getScore() + "\n\nMode: " + info.getMode() + "                  DateTime: " + info.getDateTime() + "\n";
+                        list.add(txt);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

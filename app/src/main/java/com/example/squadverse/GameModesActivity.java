@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import common.BaseActivity;
+import game_modes.MultiPlayerActivity;
 import game_modes.ProfileActivity;
 import game_modes.SinglePlayerActivity;
 
@@ -37,6 +38,13 @@ public class GameModesActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GameModesActivity.this, SinglePlayerActivity.class));
+            }
+        });
+
+        multiplayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GameModesActivity.this, MultiPlayerActivity.class));
             }
         });
 

@@ -41,7 +41,9 @@ public class SinglePlayerActivity extends BaseActivity {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SinglePlayerActivity.this, HistoryActivity.class));
+                Intent intent = new Intent(SinglePlayerActivity.this, HistoryActivity.class);
+                intent.putExtra("mode", "Singleplayer");
+                startActivity(intent);
             }
         });
     }

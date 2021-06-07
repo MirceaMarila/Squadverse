@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Squadverse.Fullscreen">
         <activity
+            android:name="game_modes.ClassicDraftActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="game_modes.MultiPlayerActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="game_modes.HistoryActivity"
             android:screenOrientation="landscape" />
         <activity
