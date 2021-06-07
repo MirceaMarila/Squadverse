@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fundal_pixelat"
+    android:background="@drawable/login_fundal_2"
     tools:context="draft.SingleResultsActivity">
 
     <LinearLayout
@@ -23,12 +23,12 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:shadowColor="#FFFFFF"
+            android:shadowColor="#000000"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="10"
             android:text="RESULTS:"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:textStyle="bold|italic" />
 
@@ -44,9 +44,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:shadowColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
                 android:text="RATING:"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -56,10 +59,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
-                android:shadowColor="#FFFFFF"
-                android:textColor="#000000"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -67,9 +73,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:shadowColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
                 android:text="CHEMISTRY:"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -79,10 +88,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
-                android:shadowColor="#FFFFFF"
-                android:textColor="#000000"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <TextView
@@ -91,9 +103,12 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:shadowColor="#FFFFFF"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
             android:text="TOP PLAYERS:"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -133,9 +148,12 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:shadowColor="#FFFFFF"
+                    android:shadowColor="#000000"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="10"
                     android:text="DEFENCE"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -168,9 +186,12 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:shadowColor="#FFFFFF"
+                    android:shadowColor="#000000"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="10"
                     android:text="MIDFIELD"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -203,9 +224,12 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:shadowColor="#FFFFFF"
+                    android:shadowColor="#000000"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="10"
                     android:text="ATTACK"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -233,9 +257,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:shadowColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
                 android:text="TOTAL SCORE:"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -245,8 +272,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center|left"
-                android:shadowColor="#FFFFFF"
-                android:textColor="#000000"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
@@ -259,8 +289,8 @@
                 android:layout_marginBottom="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/fundal_btn_meniu"
-                android:text="BACK TO MAIN MENU"
-                android:textSize="12sp"
+                android:text="EXIT"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

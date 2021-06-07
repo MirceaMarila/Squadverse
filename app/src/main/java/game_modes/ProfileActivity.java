@@ -32,9 +32,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import static draft.FormationsActivity.getId;
 
+import common.BaseActivity;
 import information.UserInformation;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
 
     ImageView profile_pic;
     TextView username, type;

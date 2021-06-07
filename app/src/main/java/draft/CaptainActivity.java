@@ -54,6 +54,7 @@ public class CaptainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaptainActivity.this, next_activity);
                 intent.putExtra("captain", (String) captain_pick.toArray()[0]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -64,6 +65,7 @@ public class CaptainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaptainActivity.this, next_activity);
                 intent.putExtra("captain", (String) captain_pick.toArray()[1]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -74,6 +76,7 @@ public class CaptainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaptainActivity.this, next_activity);
                 intent.putExtra("captain", (String) captain_pick.toArray()[2]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -84,6 +87,7 @@ public class CaptainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaptainActivity.this, next_activity);
                 intent.putExtra("captain", (String) captain_pick.toArray()[3]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -94,6 +98,7 @@ public class CaptainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaptainActivity.this, next_activity);
                 intent.putExtra("captain", (String) captain_pick.toArray()[4]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }

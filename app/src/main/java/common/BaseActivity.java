@@ -12,6 +12,14 @@ import android.widget.Toast;
 
 import com.example.squadverse.BugReportActivity;
 import com.example.squadverse.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -31,6 +39,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Stream;
+
+import information.UserInformation;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -331,6 +341,40 @@ public class BaseActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    protected String get_current_logged_user_username(){
+        final String[] username = new String[1];
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
+        if(user!=null)
+        {
+            String userEmail = user.getEmail();
+            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        UserInformation ui = snapshot.getValue(UserInformation.class);
+                        String db_email = ui.getEmail();
+                        if (db_email.equals(userEmail)) {
+                            username[0] = ui.getUsername();
+                            break;
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    //nothing
+                }
+            });
+        }
+
+        if(acct!=null){
+            username[0] = acct.getDisplayName();
+        }
+
+        return username[0];
     }
 
 }

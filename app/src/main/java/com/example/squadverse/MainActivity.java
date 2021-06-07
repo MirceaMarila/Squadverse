@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import common.BaseActivity;
 import draft.FormationsActivity;
+import game_modes.SinglePlayerActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -56,7 +57,9 @@ public class MainActivity extends BaseActivity {
         build_a_draft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FormationsActivity.class));
+                Intent intent = new Intent(MainActivity.this, FormationsActivity.class);
+                intent.putExtra("mode", "Trial");
+                startActivity(intent);
             }
         });
 

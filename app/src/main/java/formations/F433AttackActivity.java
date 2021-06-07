@@ -44,6 +44,7 @@ public class F433AttackActivity extends BaseActivity {
     public static final int REQUEST_CODE = 1;
     boolean swap = false;
     String swap_position_1, swap_position_2;
+    String mode;
 
 
     @Override
@@ -88,6 +89,9 @@ public class F433AttackActivity extends BaseActivity {
 
         // pick a player for any position
         assign_action_to_every_image_button();
+
+        // get game mode
+        mode = getIntent().getStringExtra("mode");
 
     }
 
@@ -2397,6 +2401,7 @@ public class F433AttackActivity extends BaseActivity {
                 intent.putExtra("best_attacker", best_player_list[2]);
                 intent.putExtra("rating", rating.getText().toString());
                 intent.putExtra("chemistry", chemistry.getText().toString());
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
             }

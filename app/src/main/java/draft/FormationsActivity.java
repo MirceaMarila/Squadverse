@@ -41,6 +41,7 @@ public class FormationsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FormationsActivity.this, CaptainActivity.class);
                 intent.putExtra("formation", (String) random_formations.toArray()[0]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -51,6 +52,7 @@ public class FormationsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FormationsActivity.this, CaptainActivity.class);
                 intent.putExtra("formation", (String) random_formations.toArray()[3]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -61,6 +63,7 @@ public class FormationsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FormationsActivity.this, CaptainActivity.class);
                 intent.putExtra("formation", (String) random_formations.toArray()[1]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -71,6 +74,7 @@ public class FormationsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FormationsActivity.this, CaptainActivity.class);
                 intent.putExtra("formation", (String) random_formations.toArray()[4]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }
@@ -81,6 +85,7 @@ public class FormationsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FormationsActivity.this, CaptainActivity.class);
                 intent.putExtra("formation", (String) random_formations.toArray()[2]);
+                intent.putExtra("mode", getIntent().getStringExtra("mode"));
                 startActivity(intent);
                 finish();
             }

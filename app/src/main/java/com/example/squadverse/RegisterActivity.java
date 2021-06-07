@@ -172,7 +172,6 @@ public class RegisterActivity extends BaseActivity {
 
             }
         });
-
     }
 
     private void signOut() {

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 
 import common.BaseActivity;
 import game_modes.ProfileActivity;
+import game_modes.SinglePlayerActivity;
 
 public class GameModesActivity extends BaseActivity {
 
@@ -29,6 +30,13 @@ public class GameModesActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GameModesActivity.this, ProfileActivity.class));
+            }
+        });
+
+        singleplayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GameModesActivity.this, SinglePlayerActivity.class));
             }
         });
 
