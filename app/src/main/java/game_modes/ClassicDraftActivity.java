@@ -16,6 +16,12 @@ import com.google.firebase.database.ValueEventListener;
 import common.BaseActivity;
 import draft.FormationsActivity;
 import information.MultiplayerLobbyInformation;
+import android.os.Bundle;
+import android.widget.ImageButton;
+
+import com.example.squadverse.R;
+
+import common.BaseActivity;
 
 public class ClassicDraftActivity extends BaseActivity {
 
@@ -71,5 +77,7 @@ public class ClassicDraftActivity extends BaseActivity {
 
     private void exit_from_lobby(String lobby_name){
         FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(lobby_name).child("Guest").setValue("");
+    }
+
     }
 }
