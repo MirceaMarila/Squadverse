@@ -97,9 +97,10 @@ public class ProfileActivity extends BaseActivity {
 
     private void set_username_and_type_and_picture(){
         // getting user's name from email or google acc
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String userEmail = user.getEmail();
+        FirebaseUser user4 = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user4 != null) {
+            String userEmail = user4.getEmail();
 
             FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
                 @Override

@@ -343,38 +343,4 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected String get_current_logged_user_username(){
-        final String[] username = new String[1];
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-
-        if(user!=null)
-        {
-            String userEmail = user.getEmail();
-            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        UserInformation ui = snapshot.getValue(UserInformation.class);
-                        String db_email = ui.getEmail();
-                        if (db_email.equals(userEmail)) {
-                            username[0] = ui.getUsername();
-                            break;
-                        }
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    //nothing
-                }
-            });
-        }
-
-        if(acct!=null){
-            username[0] = acct.getDisplayName();
-        }
-
-        return username[0];
-    }
-
 }

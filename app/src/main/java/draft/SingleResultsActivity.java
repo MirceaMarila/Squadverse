@@ -67,6 +67,10 @@ public class SingleResultsActivity extends BaseActivity {
         def.setBackgroundResource(getId(received_defence_card, R.drawable.class));
         mid.setBackgroundResource(getId(received_midfield_card, R.drawable.class));
         att.setBackgroundResource(getId(received_attack_card, R.drawable.class));
+        def.getBackground().setAlpha(255);
+        mid.getBackground().setAlpha(255);
+        att.getBackground().setAlpha(255);
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,5 +108,39 @@ public class SingleResultsActivity extends BaseActivity {
 
             FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(username).push().updateChildren(map);
         }
+    }
+
+    private String get_current_logged_user_username(){
+        final String[] username = new String[1];
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
+        if(user!=null)
+        {
+            String userEmail = user.getEmail();
+            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        UserInformation ui = snapshot.getValue(UserInformation.class);
+                        String db_email = ui.getEmail();
+                        if (db_email.equals(userEmail)) {
+                            username[0] = ui.getUsername();
+                            break;
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    //nothing
+                }
+            });
+        }
+
+        if(acct!=null){
+            username[0] = acct.getDisplayName();
+        }
+
+        return username[0];
     }
 }
