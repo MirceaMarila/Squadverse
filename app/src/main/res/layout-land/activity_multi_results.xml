@@ -57,7 +57,7 @@
             <Button
                 android:id="@+id/exit_multi_lobby"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/fundal_btn_meniu"
                 android:text="EXIT"

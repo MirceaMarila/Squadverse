@@ -44,6 +44,15 @@ public class ClassicDraftActivity extends BaseActivity {
             }
         });
 
+        play_with_a_friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClassicDraftActivity.this, PlayWithFirendActivity.class);
+                intent.putExtra("mode", "Friendly");
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

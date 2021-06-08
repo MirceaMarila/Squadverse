@@ -23,7 +23,7 @@ public class LobbyActivity extends BaseActivity {
 
     TextView title, description;
     Button cancel, start, check;
-    String mode, lobby_key;
+    String mode, lobby_key, friend_email;
     boolean lobby_created, in_game, deleted_bobby;
 
     @Override
@@ -41,6 +41,9 @@ public class LobbyActivity extends BaseActivity {
         lobby_created = false;
         in_game = false;
         deleted_bobby = false;
+
+        if(mode.equals("Friendly"))
+            friend_email = getIntent().getStringExtra("friend");
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +97,7 @@ public class LobbyActivity extends BaseActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         String key = snapshot.getKey();
-                        if(!key.equals(reformat_user_email(get_current_logged_user_email()))) {
+                        if(!key.equals(reformat_user_email(get_current_logged_user_email())) && mode.equals("Multiplayer")) {
                             MultiplayerLobbyInformation mli = ds.getValue(MultiplayerLobbyInformation.class);
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("Mode", mli.getMode());
@@ -120,6 +123,35 @@ public class LobbyActivity extends BaseActivity {
                             opponent_found_settings();
                             break;
                         }
+
+                        else if(!key.equals(reformat_user_email(get_current_logged_user_email())) && mode.equals("Friendly")) {
+                            MultiplayerLobbyInformation mli = ds.getValue(MultiplayerLobbyInformation.class);
+                            if (mli.getOpponent().equals(reformat_user_email(get_current_logged_user_email())))
+                            {
+                                HashMap<String, Object> map = new HashMap<>();
+                            map.put("Mode", mli.getMode());
+                            map.put("Rating", mli.getRating());
+                            map.put("Chemistry", mli.getChemistry());
+                            map.put("Score", mli.getScore());
+                            map.put("Winner", mli.getWinner());
+                            map.put("Opponent", reformat_user_email(get_current_logged_user_email()));
+
+                            move_lobby_to_ingame(key, map);
+
+                            try {
+                                if (!deleted_bobby) {
+                                    FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).removeValue();
+                                    deleted_bobby = true;
+                                }
+                            } catch (Exception e) {
+                                //nothing
+                            }
+
+                            match_found = true;
+                            opponent_found_settings();
+                            break;
+                        }
+                        }
                     }
                 }
                 if (!match_found && !in_game)
@@ -135,7 +167,7 @@ public class LobbyActivity extends BaseActivity {
     }
 
     private void create_lobby(){
-        if(!lobby_created) {
+        if(!lobby_created && mode.equals("Multiplayer")) {
             opponent_not_found_settings();
             HashMap<String, Object> map = new HashMap<>();
             map.put("Mode", mode);
@@ -143,6 +175,19 @@ public class LobbyActivity extends BaseActivity {
             map.put("Rating", "");
             map.put("Score", "");
             map.put("Opponent", "");
+            map.put("Winner", "");
+            FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
+            Toast.makeText(LobbyActivity.this, "Lobby created!", Toast.LENGTH_SHORT).show();
+            lobby_created = true;
+        }
+        else if(!lobby_created && mode.equals("Friendly")) {
+            opponent_not_found_settings();
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("Mode", mode);
+            map.put("Chemistry", "");
+            map.put("Rating", "");
+            map.put("Score", "");
+            map.put("Opponent", friend_email);
             map.put("Winner", "");
             FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
             Toast.makeText(LobbyActivity.this, "Lobby created!", Toast.LENGTH_SHORT).show();

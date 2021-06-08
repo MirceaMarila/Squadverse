@@ -83,6 +83,30 @@ public class HistoryActivity extends BaseActivity {
             });
         }
 
+        else if(mode.equals("Friends")){
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Friends").child(reformat_user_email(get_current_logged_user_email()));
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    list.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String key = snapshot.getKey();
+
+                        String txt = "\n" + key + "\n";
+                        if(!list.contains(txt))
+                            list.add(txt);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // nothing
+                }
+            });
+        }
+
     }
 
 }

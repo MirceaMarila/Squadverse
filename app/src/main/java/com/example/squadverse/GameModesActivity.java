@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import common.BaseActivity;
+import game_modes.HistoryActivity;
 import game_modes.MultiPlayerActivity;
 import game_modes.ProfileActivity;
 import game_modes.SinglePlayerActivity;
@@ -45,6 +46,15 @@ public class GameModesActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GameModesActivity.this, MultiPlayerActivity.class));
+            }
+        });
+
+        friends_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameModesActivity.this, HistoryActivity.class);
+                intent.putExtra("mode", "Friends");
+                startActivity(intent);
             }
         });
 

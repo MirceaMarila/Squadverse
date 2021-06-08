@@ -2395,7 +2395,7 @@ public class F433AttackActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                if(mode.split("@",2)[0].equals("Singleplayer")){
+                if(mode.equals("Singleplayer")){
                     String best_players = get_best_cards();
                     String[] best_player_list = best_players.split("@", 4);
 
@@ -2410,7 +2410,16 @@ public class F433AttackActivity extends BaseActivity {
                     finish();
                 }
 
-                else if(mode.split("@",2)[0].equals("Multiplayer")){
+                else if(mode.equals("Multiplayer")){
+                    Intent intent = new Intent(F433AttackActivity.this, MultiResultsActivity.class);
+                    intent.putExtra("rating", rating.getText().toString());
+                    intent.putExtra("chemistry", chemistry.getText().toString());
+                    intent.putExtra("mode", mode);
+                    startActivity(intent);
+                    finish();
+                }
+
+                else if(mode.equals("Friendly")){
                     Intent intent = new Intent(F433AttackActivity.this, MultiResultsActivity.class);
                     intent.putExtra("rating", rating.getText().toString());
                     intent.putExtra("chemistry", chemistry.getText().toString());

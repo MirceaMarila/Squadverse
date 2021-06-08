@@ -102,8 +102,6 @@ public class MultiResultsActivity extends BaseActivity {
                                     FirebaseDatabase.getInstance().getReference("Currently_playing").child(key).child(key2).child(key3).child("Winner").setValue("DRAW");
                                 }
                             }
-                            else
-                                Toast.makeText(MultiResultsActivity.this, "Opponent hasn't finished yet!", Toast.LENGTH_SHORT).show();
                             break;
                             }
                         }
@@ -139,8 +137,12 @@ public class MultiResultsActivity extends BaseActivity {
             map.put("DateTime", timeStamp);
             map.put("Opponent_name", op_name.getText().toString());
 
-            FirebaseDatabase.getInstance().getReference().child("Multi_player_history").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
-
+                FirebaseDatabase.getInstance().getReference().child("Multi_player_history").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
+            if(mode.equals("Friendly")) {
+                HashMap<String, Object> map2=new HashMap<>();
+                map2.put("friend", op_name.getText().toString());
+                FirebaseDatabase.getInstance().getReference().child("Friends").child(reformat_user_email(get_current_logged_user_email())).child(op_name.getText().toString()).push().updateChildren(map2);
+            }
     }
 
     private void delete_your_lobby_branch()
