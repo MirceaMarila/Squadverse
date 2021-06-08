@@ -38,45 +38,12 @@ public class ClassicDraftActivity extends BaseActivity {
         matchmaking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // exit_or_delete_lobby();
                 Intent intent = new Intent(ClassicDraftActivity.this, LobbyActivity.class);
                 intent.putExtra("mode", "Multiplayer");
                 startActivity(intent);
             }
         });
 
-    }
-
-    private void exit_or_delete_lobby(){
-
-        FirebaseDatabase.getInstance().getReference().child("Matchmaking").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    MultiplayerLobbyInformation ui = snapshot.getValue(MultiplayerLobbyInformation.class);
-                    String db_host= ui.getHost();
-                    String db_guest = ui.getGuest();
-                    if(db_host.equals("") && db_guest.equals("")) {
-                        FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(snapshot.getKey()).removeValue();
-                        break;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
-
-    }
-
-    private void delete_lobby(String lobby_name){
-        FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(lobby_name).removeValue();
-    }
-
-    private void exit_from_lobby(String lobby_name){
-        FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(lobby_name).child("Guest").setValue("");
     }
 
 }

@@ -24,8 +24,7 @@ public class LobbyActivity extends BaseActivity {
     TextView title, description;
     Button cancel, start, check;
     String mode, lobby_key;
-    boolean lobby_created;
-    boolean in_game;
+    boolean lobby_created, in_game, deleted_bobby;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class LobbyActivity extends BaseActivity {
         mode = getIntent().getStringExtra("mode");
         lobby_created = false;
         in_game = false;
+        deleted_bobby = false;
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,7 @@ public class LobbyActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LobbyActivity.this, FormationsActivity.class);
-                intent.putExtra("mode", mode+"@"+lobby_key);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
             }
@@ -75,7 +75,10 @@ public class LobbyActivity extends BaseActivity {
         super.onDestroy();
 
         try {
-            FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).removeValue();
+            if(!deleted_bobby) {
+                FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).removeValue();
+                deleted_bobby = true;
+            }
         }
         catch (Exception e){
             //nothing
@@ -94,21 +97,20 @@ public class LobbyActivity extends BaseActivity {
                         if(!key.equals(reformat_user_email(get_current_logged_user_email()))) {
                             MultiplayerLobbyInformation mli = ds.getValue(MultiplayerLobbyInformation.class);
                             HashMap<String, Object> map = new HashMap<>();
-                            map.put("Host", mli.getHost());
-                            map.put("Guest", reformat_user_email(get_current_logged_user_email()));
                             map.put("Mode", mli.getMode());
-                            map.put("Host_rating", mli.getHost_rating());
-                            map.put("Host_chemistry", mli.getHost_chemistry());
-                            map.put("Guest_rating", mli.getGuest_rating());
-                            map.put("Guest_chemistry", mli.getGuest_chemistry());
-                            map.put("Host_score", mli.getHost_score());
-                            map.put("Guest_score", mli.getGuest_score());
+                            map.put("Rating", mli.getRating());
+                            map.put("Chemistry", mli.getChemistry());
+                            map.put("Score", mli.getScore());
                             map.put("Winner", mli.getWinner());
+                            map.put("Opponent", reformat_user_email(get_current_logged_user_email()));
 
                             move_lobby_to_ingame(key, map);
 
                             try {
-                                FirebaseDatabase.getInstance().getReference().child("Lobby").child(key).removeValue();
+                                if(!deleted_bobby) {
+                                    FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).removeValue();
+                                    deleted_bobby = true;
+                                }
                             }
                             catch (Exception e){
                                 //nothing
@@ -120,7 +122,7 @@ public class LobbyActivity extends BaseActivity {
                         }
                     }
                 }
-                if (!match_found)
+                if (!match_found && !in_game)
                     create_lobby();
             }
 
@@ -136,21 +138,11 @@ public class LobbyActivity extends BaseActivity {
         if(!lobby_created) {
             opponent_not_found_settings();
             HashMap<String, Object> map = new HashMap<>();
-            map.put("Host", reformat_user_email(get_current_logged_user_email()));
-            map.put("Guest", "");
             map.put("Mode", mode);
-            map.put("Host_rating", "");
-            map.put("Host_chemistry", "");
-            map.put("Guest_rating", "");
-            map.put("Guest_chemistry", "");
-            map.put("Host_score", "");
-            map.put("Guest_score", "");
-            map.put("Host_best_att", "");
-            map.put("Host_best_mid", "");
-            map.put("Host_best_def", "");
-            map.put("Guest_best_att", "");
-            map.put("Guest_best_mid", "");
-            map.put("Guest_best_def", "");
+            map.put("Chemistry", "");
+            map.put("Rating", "");
+            map.put("Score", "");
+            map.put("Opponent", "");
             map.put("Winner", "");
             FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
             Toast.makeText(LobbyActivity.this, "Lobby created!", Toast.LENGTH_SHORT).show();
@@ -162,7 +154,9 @@ public class LobbyActivity extends BaseActivity {
         if(!in_game && !lobby_created)
         {
             lobby_key = key+"-"+reformat_user_email(get_current_logged_user_email());
-            FirebaseDatabase.getInstance().getReference().child("Currently_playing").child(lobby_key).push().updateChildren(map);
+            FirebaseDatabase.getInstance().getReference().child("Currently_playing").child(lobby_key).child(key).push().updateChildren(map);
+            map.put("Opponent", key);
+            FirebaseDatabase.getInstance().getReference().child("Currently_playing").child(lobby_key).child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
             in_game = true;
         }
     }
@@ -172,19 +166,16 @@ public class LobbyActivity extends BaseActivity {
         FirebaseDatabase.getInstance().getReference("Currently_playing").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean found = false;
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         String key = snapshot.getKey();
                         if(key.split("-", 2)[0].equals(reformat_user_email(get_current_logged_user_email())) || key.split("-", 2)[1].equals(reformat_user_email(get_current_logged_user_email())))
-                            Toast.makeText(LobbyActivity.this, "BINGO!", Toast.LENGTH_SHORT).show();
                             opponent_found_settings();
                             lobby_key = snapshot.getKey()+"-"+reformat_user_email(get_current_logged_user_email());
-                            found = true;
+
                         break;
 
                 }
-                if(!found)
-                    Toast.makeText(LobbyActivity.this, "No opponent found yet..", Toast.LENGTH_SHORT).show();
             }
 
             @Override

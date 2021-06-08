@@ -1,30 +1,20 @@
 package information;
 
+import android.media.Rating;
+
 public class MultiplayerLobbyInformation {
 
-    String Host, Mode, Guest, Host_rating, Host_chemistry, Guest_rating, Guest_chemistry, Host_score, Guest_score, Host_best_att, Host_best_mid, Host_best_def, Guest_best_att, Guest_best_mid, Guest_best_def, Winner;
+    String Mode, Rating, Chemistry, Score, Winner, Opponent;
 
     public MultiplayerLobbyInformation(){}
 
-    public MultiplayerLobbyInformation(String host, String mode, String guest, String host_rating, String host_chemistry, String guest_rating, String guest_chemistry, String host_score, String guest_score, String host_best_att, String host_best_mid, String host_best_def, String guest_best_att, String guest_best_mid, String guest_best_def, String winner) {
-        Host = host;
+    public MultiplayerLobbyInformation(String host, String mode, String guest, String rating, String chemistry, String score, String winner, String opponent) {
         Mode = mode;
-        Guest = guest;
-        Host_rating = host_rating;
-        Host_chemistry = host_chemistry;
-        Guest_rating = guest_rating;
-        Guest_chemistry = guest_chemistry;
-        Host_score = host_score;
-        Guest_score = guest_score;
+        Rating = rating;
+        Chemistry = chemistry;
+        Score = score;
         Winner = winner;
-    }
-
-    public String getHost() {
-        return Host;
-    }
-
-    public void setHost(String host) {
-        Host = host;
+        Opponent = opponent;
     }
 
     public String getMode() {
@@ -35,60 +25,28 @@ public class MultiplayerLobbyInformation {
         Mode = mode;
     }
 
-    public String getGuest() {
-        return Guest;
+    public String getRating() {
+        return Rating;
     }
 
-    public void setGuest(String guest) {
-        Guest = guest;
+    public void setRating(String rating) {
+        Rating = rating;
     }
 
-    public String getHost_rating() {
-        return Host_rating;
+    public String getChemistry() {
+        return Chemistry;
     }
 
-    public void setHost_rating(String host_rating) {
-        Host_rating = host_rating;
+    public void setChemistry(String chemistry) {
+        Chemistry = chemistry;
     }
 
-    public String getHost_chemistry() {
-        return Host_chemistry;
+    public String getScore() {
+        return Score;
     }
 
-    public void setHost_chemistry(String host_chemistry) {
-        Host_chemistry = host_chemistry;
-    }
-
-    public String getGuest_rating() {
-        return Guest_rating;
-    }
-
-    public void setGuest_rating(String guest_rating) {
-        Guest_rating = guest_rating;
-    }
-
-    public String getGuest_chemistry() {
-        return Guest_chemistry;
-    }
-
-    public void setGuest_chemistry(String guest_chemistry) {
-        Guest_chemistry = guest_chemistry;
-    }
-
-    public String getHost_score() {
-        return Host_score;
-    }
-
-    public void setHost_score(String host_score) {
-        Host_score = host_score;
-    }
-
-    public String getGuest_score() {
-        return Guest_score;
-    }
-
-    public void setGuest_score(String guest_score) {
-        Guest_score = guest_score;
+    public void setScore(String score) {
+        Score = score;
     }
 
     public String getWinner() {
@@ -97,5 +55,13 @@ public class MultiplayerLobbyInformation {
 
     public void setWinner(String winner) {
         Winner = winner;
+    }
+
+    public String getOpponent() {
+        return Opponent;
+    }
+
+    public void setOpponent(String opponent) {
+        Opponent = opponent;
     }
 }
