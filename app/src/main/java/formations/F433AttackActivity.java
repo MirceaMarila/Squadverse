@@ -29,6 +29,7 @@ import static draft.FormationsActivity.getId;
 import common.BaseActivity;
 import draft.CaptainActivity;
 import draft.ManagerPickActivity;
+import draft.MultiResultsActivity;
 import draft.PlayerPickActivity;
 import draft.SingleResultsActivity;
 
@@ -2372,9 +2373,9 @@ public class F433AttackActivity extends BaseActivity {
         card_manager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (position_takers.size() < 23)
-                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
-                else {
+//                if (position_takers.size() < 23)
+//                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
+//                else {
 
                     if (manager != null)
                         Toast.makeText(F433AttackActivity.this, "You already chose a manager!", Toast.LENGTH_SHORT).show();
@@ -2386,24 +2387,38 @@ public class F433AttackActivity extends BaseActivity {
                         intent.putExtra("managers_bool", "false");
                         startActivityForResult(intent, REQUEST_CODE);
                     }
-                }
+                //}
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String best_players = get_best_cards();
-                String[] best_player_list = best_players.split("@", 4);
-                Intent intent = new Intent(F433AttackActivity.this, SingleResultsActivity.class);
-                intent.putExtra("best_defender", best_player_list[0]);
-                intent.putExtra("best_midfielder", best_player_list[1]);
-                intent.putExtra("best_attacker", best_player_list[2]);
-                intent.putExtra("rating", rating.getText().toString());
-                intent.putExtra("chemistry", chemistry.getText().toString());
-                intent.putExtra("mode", mode);
-                startActivity(intent);
-                finish();
+
+                if(mode.split("@",2)[0].equals("Singleplayer")){
+                    String best_players = get_best_cards();
+                    String[] best_player_list = best_players.split("@", 4);
+
+                    Intent intent = new Intent(F433AttackActivity.this, SingleResultsActivity.class);
+                    intent.putExtra("best_defender", best_player_list[0]);
+                    intent.putExtra("best_midfielder", best_player_list[1]);
+                    intent.putExtra("best_attacker", best_player_list[2]);
+                    intent.putExtra("rating", rating.getText().toString());
+                    intent.putExtra("chemistry", chemistry.getText().toString());
+                    intent.putExtra("mode", mode);
+                    startActivity(intent);
+                    finish();
+                }
+
+                else if(mode.split("@",2)[0].equals("Multiplayer")){
+                    Intent intent = new Intent(F433AttackActivity.this, MultiResultsActivity.class);
+                    intent.putExtra("rating", rating.getText().toString());
+                    intent.putExtra("chemistry", chemistry.getText().toString());
+                    intent.putExtra("mode", mode);
+                    startActivity(intent);
+                    finish();
+                }
+
             }
         });
     }

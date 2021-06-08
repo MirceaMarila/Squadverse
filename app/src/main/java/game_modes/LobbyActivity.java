@@ -1,42 +1,31 @@
 package game_modes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.squadverse.FeedbackActivity;
 import com.example.squadverse.R;
-import com.example.squadverse.RegisterActivity;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import common.BaseActivity;
 import draft.FormationsActivity;
 import information.MultiplayerLobbyInformation;
-import information.UserInformation;
 
 public class LobbyActivity extends BaseActivity {
 
     TextView title, description;
     Button cancel, start, check;
-    String mode;
+    String mode, lobby_key;
+    boolean lobby_created;
+    boolean in_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +39,8 @@ public class LobbyActivity extends BaseActivity {
         check = findViewById(R.id.check_lobby);
 
         mode = getIntent().getStringExtra("mode");
+        lobby_created = false;
+        in_game = false;
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +53,7 @@ public class LobbyActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LobbyActivity.this, FormationsActivity.class);
-                intent.putExtra("mode", mode);
+                intent.putExtra("mode", mode+"@"+lobby_key);
                 startActivity(intent);
                 finish();
             }
@@ -79,86 +70,58 @@ public class LobbyActivity extends BaseActivity {
 
     }
 
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        ArrayList<String> to_delete = new ArrayList<>();
-//        ArrayList<String> to_update = new ArrayList<>();
-//
-//        FirebaseDatabase.getInstance().getReference().child("Matchmaking").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    MultiplayerLobbyInformation ui = snapshot.getValue(MultiplayerLobbyInformation.class);
-//                    String db_host= ui.getHost();
-//                    String db_guest = ui.getGuest();
-//                    if(db_host.equals(get_current_logged_user_username())) {
-//                        to_delete.add(snapshot.getKey());
-//                        break;
-//                    }
-//                    if(db_guest.equals(get_current_logged_user_username())){
-//                        to_update.add(snapshot.getKey());
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//
-//            }
-//        });
-//
-//        for(String key: to_delete){
-//            int a = 10;
-//        }
-//
-//    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
-    private void empty_lobby(){
-        FirebaseDatabase.getInstance().getReference().child("Matchmaking").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    MultiplayerLobbyInformation ui = snapshot.getValue(MultiplayerLobbyInformation.class);
-                    String db_host= ui.getHost();
-                    String db_guest = ui.getGuest();
-                    if(db_host.equals(get_current_logged_user_username())) {
-                        FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(snapshot.getKey()).child("Host").setValue("");
-                        break;
-                    }
-                    if(db_guest.equals(get_current_logged_user_username())){
-                        FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(snapshot.getKey()).child("Guest").setValue("");
-                        break;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
+        try {
+            FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).removeValue();
+        }
+        catch (Exception e){
+            //nothing
+        }
     }
 
     private void search_for_lobby_or_create_one(){
 
-        // search for lobby
-        final boolean[] flag = {false};
-        final String[] key = {null};
-
-        FirebaseDatabase.getInstance().getReference().child("Matchmaking").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Lobby").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean match_found = false;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    MultiplayerLobbyInformation ui = snapshot.getValue(MultiplayerLobbyInformation.class);
-                    String db_opponent = ui.getGuest();
-                    if (db_opponent.equals("")) {
-                        flag[0] = true;
-                        key[0] = snapshot.getKey();
-                        break;
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String key = snapshot.getKey();
+                        if(!key.equals(reformat_user_email(get_current_logged_user_email()))) {
+                            MultiplayerLobbyInformation mli = ds.getValue(MultiplayerLobbyInformation.class);
+                            HashMap<String, Object> map = new HashMap<>();
+                            map.put("Host", mli.getHost());
+                            map.put("Guest", reformat_user_email(get_current_logged_user_email()));
+                            map.put("Mode", mli.getMode());
+                            map.put("Host_rating", mli.getHost_rating());
+                            map.put("Host_chemistry", mli.getHost_chemistry());
+                            map.put("Guest_rating", mli.getGuest_rating());
+                            map.put("Guest_chemistry", mli.getGuest_chemistry());
+                            map.put("Host_score", mli.getHost_score());
+                            map.put("Guest_score", mli.getGuest_score());
+                            map.put("Winner", mli.getWinner());
+
+                            move_lobby_to_ingame(key, map);
+
+                            try {
+                                FirebaseDatabase.getInstance().getReference().child("Lobby").child(key).removeValue();
+                            }
+                            catch (Exception e){
+                                //nothing
+                            }
+
+                            match_found = true;
+                            opponent_found_settings();
+                            break;
+                        }
                     }
                 }
+                if (!match_found)
+                    create_lobby();
             }
 
             @Override
@@ -167,16 +130,13 @@ public class LobbyActivity extends BaseActivity {
             }
         });
 
-        if (flag[0]) {
-            // update
-            FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(key[0]).child("Guest").setValue(get_current_logged_user_username());
-            opponent_found_settings();
+    }
 
-        } else
-        {
+    private void create_lobby(){
+        if(!lobby_created) {
             opponent_not_found_settings();
-            HashMap<String, Object> map=new HashMap<>();
-            map.put("Host", get_current_logged_user_username());
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("Host", reformat_user_email(get_current_logged_user_email()));
             map.put("Guest", "");
             map.put("Mode", mode);
             map.put("Host_rating", "");
@@ -192,26 +152,39 @@ public class LobbyActivity extends BaseActivity {
             map.put("Guest_best_mid", "");
             map.put("Guest_best_def", "");
             map.put("Winner", "");
-            FirebaseDatabase.getInstance().getReference().child("Matchmaking").push().updateChildren(map);
+            FirebaseDatabase.getInstance().getReference().child("Lobby").child(reformat_user_email(get_current_logged_user_email())).push().updateChildren(map);
             Toast.makeText(LobbyActivity.this, "Lobby created!", Toast.LENGTH_SHORT).show();
+            lobby_created = true;
+        }
+    }
 
+    private void move_lobby_to_ingame(String key, HashMap<String, Object> map){
+        if(!in_game && !lobby_created)
+        {
+            lobby_key = key+"-"+reformat_user_email(get_current_logged_user_email());
+            FirebaseDatabase.getInstance().getReference().child("Currently_playing").child(lobby_key).push().updateChildren(map);
+            in_game = true;
         }
     }
 
     private void check_if_opponent_is_found(){
-        final boolean[] flag = {false};
-        FirebaseDatabase.getInstance().getReference("Matchmaking").addValueEventListener(new ValueEventListener() {
+
+        FirebaseDatabase.getInstance().getReference("Currently_playing").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean found = false;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    MultiplayerLobbyInformation ui = snapshot.getValue(MultiplayerLobbyInformation.class);
-                    String db_host= ui.getHost();
-                    String db_guest = ui.getGuest();
-                    if (db_host.equals(get_current_logged_user_username()) && !db_guest.equals("")) {
-                        flag[0] = true;
+                        String key = snapshot.getKey();
+                        if(key.split("-", 2)[0].equals(reformat_user_email(get_current_logged_user_email())) || key.split("-", 2)[1].equals(reformat_user_email(get_current_logged_user_email())))
+                            Toast.makeText(LobbyActivity.this, "BINGO!", Toast.LENGTH_SHORT).show();
+                            opponent_found_settings();
+                            lobby_key = snapshot.getKey()+"-"+reformat_user_email(get_current_logged_user_email());
+                            found = true;
                         break;
-                    }
+
                 }
+                if(!found)
+                    Toast.makeText(LobbyActivity.this, "No opponent found yet..", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -219,19 +192,6 @@ public class LobbyActivity extends BaseActivity {
 
             }
         });
-
-        if(flag[0]){
-            {
-                opponent_found_settings();
-                Toast.makeText(LobbyActivity.this, "BINGO!", Toast.LENGTH_SHORT).show();
-            }
-
-        }
-        else
-            {
-            opponent_not_found_settings();
-            Toast.makeText(LobbyActivity.this, "No opponent found yet..", Toast.LENGTH_SHORT).show();
-            }
 
     }
 
@@ -249,37 +209,4 @@ public class LobbyActivity extends BaseActivity {
         start.setAlpha((float)0.5);
     }
 
-    private String get_current_logged_user_username(){
-        final String[] username = new String[1];
-        FirebaseUser user3 = FirebaseAuth.getInstance().getCurrentUser();
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-
-        if(user3!=null)
-        {
-            String userEmail = user3.getEmail();
-            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        UserInformation ui = snapshot.getValue(UserInformation.class);
-                        String db_email = ui.getEmail();
-                        if (db_email.equals(userEmail)) {
-                            username[0] = ui.getUsername();
-                            break;
-                        }
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    //nothing
-                }
-            });
-        }
-
-        if(acct!=null){
-            username[0] = acct.getDisplayName();
-        }
-
-        return username[0];
-    }
 }

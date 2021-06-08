@@ -16,12 +16,6 @@ public class MultiplayerLobbyInformation {
         Guest_chemistry = guest_chemistry;
         Host_score = host_score;
         Guest_score = guest_score;
-        Host_best_att = host_best_att;
-        Host_best_mid = host_best_mid;
-        Host_best_def = host_best_def;
-        Guest_best_att = guest_best_att;
-        Guest_best_mid = guest_best_mid;
-        Guest_best_def = guest_best_def;
         Winner = winner;
     }
 
@@ -95,54 +89,6 @@ public class MultiplayerLobbyInformation {
 
     public void setGuest_score(String guest_score) {
         Guest_score = guest_score;
-    }
-
-    public String getHost_best_att() {
-        return Host_best_att;
-    }
-
-    public void setHost_best_att(String host_best_att) {
-        Host_best_att = host_best_att;
-    }
-
-    public String getHost_best_mid() {
-        return Host_best_mid;
-    }
-
-    public void setHost_best_mid(String host_best_mid) {
-        Host_best_mid = host_best_mid;
-    }
-
-    public String getHost_best_def() {
-        return Host_best_def;
-    }
-
-    public void setHost_best_def(String host_best_def) {
-        Host_best_def = host_best_def;
-    }
-
-    public String getGuest_best_att() {
-        return Guest_best_att;
-    }
-
-    public void setGuest_best_att(String guest_best_att) {
-        Guest_best_att = guest_best_att;
-    }
-
-    public String getGuest_best_mid() {
-        return Guest_best_mid;
-    }
-
-    public void setGuest_best_mid(String guest_best_mid) {
-        Guest_best_mid = guest_best_mid;
-    }
-
-    public String getGuest_best_def() {
-        return Guest_best_def;
-    }
-
-    public void setGuest_best_def(String guest_best_def) {
-        Guest_best_def = guest_best_def;
     }
 
     public String getWinner() {

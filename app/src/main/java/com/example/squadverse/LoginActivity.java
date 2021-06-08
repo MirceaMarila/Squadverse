@@ -140,30 +140,6 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    private void get_email_from_username(String username){
-        FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    UserInformation ui = snapshot.getValue(UserInformation.class);
-                    String db_username = ui.getUsername();
-                    String db_email = ui.getEmail();
-                    if (db_username.equals(username)) {
-                        String db_acc_email = db_email;
-                        break;
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
-
-    }
-
     //GOOGLE SIGNIN methods
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

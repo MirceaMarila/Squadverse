@@ -79,5 +79,4 @@ public class ClassicDraftActivity extends BaseActivity {
         FirebaseDatabase.getInstance().getReference().child("Matchmaking").child(lobby_name).child("Guest").setValue("");
     }
 
-    }
 }

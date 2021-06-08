@@ -24,6 +24,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -52,7 +53,7 @@ public class RegisterActivity extends BaseActivity {
             Button register, back;
             ImageView avatar;
     private String avatar_name;
-    private final FirebaseAuth auth_register =FirebaseAuth.getInstance();
+    private final FirebaseAuth auth_register = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,7 @@ public class RegisterActivity extends BaseActivity {
         map.put("Avatar", avatar_name);
 
         FirebaseDatabase.getInstance().getReference().child("User_profile").push().updateChildren(map);
+
     }
 
     private void check_username_already_exists_and_register_if_not(String username, String email, String password) {
@@ -161,6 +163,7 @@ public class RegisterActivity extends BaseActivity {
                 if (!flag[0]) {
                     registerUser(email, password, username);
                     flag1[0] = true;
+
                 } else if (!flag1[0]) {
                     Toast.makeText(RegisterActivity.this, "There is already an account with this username. Please choose another one!", Toast.LENGTH_SHORT).show();
                 }
@@ -265,4 +268,5 @@ public class RegisterActivity extends BaseActivity {
 
 
     }
+
 }

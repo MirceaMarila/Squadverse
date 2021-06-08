@@ -1,36 +1,20 @@
 package draft;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.squadverse.MainActivity;
 import com.example.squadverse.R;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Field;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
 import common.BaseActivity;
-import formations.F433AttackActivity;
-import information.UserInformation;
-
-import static draft.FormationsActivity.getId;
 
 public class SingleResultsActivity extends BaseActivity {
 
@@ -96,7 +80,7 @@ public class SingleResultsActivity extends BaseActivity {
     private void publish_results_in_firebase_for_logged_users(){
         if(!mode.equals("Trial")){
 
-            String username = get_current_logged_user_username();
+            String email = reformat_user_email(get_current_logged_user_email());
 
             String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
             HashMap<String, Object> map=new HashMap<>();
@@ -106,41 +90,8 @@ public class SingleResultsActivity extends BaseActivity {
             map.put("Score", score.getText().toString());
             map.put("DateTime", timeStamp);
 
-            FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(username).push().updateChildren(map);
+            FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(email).push().updateChildren(map);
         }
     }
 
-    private String get_current_logged_user_username(){
-        final String[] username = new String[1];
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-
-        if(user!=null)
-        {
-            String userEmail = user.getEmail();
-            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        UserInformation ui = snapshot.getValue(UserInformation.class);
-                        String db_email = ui.getEmail();
-                        if (db_email.equals(userEmail)) {
-                            username[0] = ui.getUsername();
-                            break;
-                        }
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    //nothing
-                }
-            });
-        }
-
-        if(acct!=null){
-            username[0] = acct.getDisplayName();
-        }
-
-        return username[0];
-    }
 }
