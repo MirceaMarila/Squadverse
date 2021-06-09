@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.squadverse">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,6 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Squadverse.Fullscreen">
+
+        <activity
+            android:name="game_modes.ChooseChallangeActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="game_modes.LocalModesActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="draft.LocalResultsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="game_modes.LocalInformativeActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="game_modes.PlayWithFirendActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="draft.MultiResultsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="game_modes.LobbyActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name="game_modes.ClassicDraftActivity"
             android:screenOrientation="landscape" />

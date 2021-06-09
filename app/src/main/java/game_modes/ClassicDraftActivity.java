@@ -2,6 +2,20 @@ package game_modes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
+import com.example.squadverse.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import common.BaseActivity;
+import draft.FormationsActivity;
+import information.MultiplayerLobbyInformation;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -21,6 +35,24 @@ public class ClassicDraftActivity extends BaseActivity {
         matchmaking = findViewById(R.id.classic_draft_matchmake_btn);
         play_with_a_friend = findViewById(R.id.classic_draft_play_friend_btn);
 
+        matchmaking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClassicDraftActivity.this, LobbyActivity.class);
+                intent.putExtra("mode", "Multiplayer");
+                startActivity(intent);
+            }
+        });
+
+        play_with_a_friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClassicDraftActivity.this, PlayWithFirendActivity.class);
+                intent.putExtra("mode", "Friendly");
+                startActivity(intent);
+            }
+        });
 
     }
+
 }

@@ -2,6 +2,7 @@ package common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.FileUtils;
@@ -11,13 +12,18 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.example.squadverse.BugReportActivity;
+import com.example.squadverse.GameModesActivity;
+import com.example.squadverse.LoginActivity;
 import com.example.squadverse.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -40,6 +46,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import game_modes.HistoryActivity;
 import information.UserInformation;
 
 public class BaseActivity extends AppCompatActivity {
@@ -343,38 +350,24 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected String get_current_logged_user_username(){
-        final String[] username = new String[1];
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    protected String get_current_logged_user_email(){
+
+        FirebaseUser user2 = FirebaseAuth.getInstance().getCurrentUser();
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        String return_string = null;
 
-        if(user!=null)
-        {
-            String userEmail = user.getEmail();
-            FirebaseDatabase.getInstance().getReference("User_profile").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        UserInformation ui = snapshot.getValue(UserInformation.class);
-                        String db_email = ui.getEmail();
-                        if (db_email.equals(userEmail)) {
-                            username[0] = ui.getUsername();
-                            break;
-                        }
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    //nothing
-                }
-            });
-        }
+        if(user2!=null)
+            return_string = user2.getEmail();
 
-        if(acct!=null){
-            username[0] = acct.getDisplayName();
-        }
+        if(acct!=null)
+            return_string = acct.getDisplayName();
 
-        return username[0];
+        return return_string;
+
     }
 
+    protected String reformat_user_email(String email){
+        return email.replaceAll("[-+.^:,@]", "_");
+    }
 }

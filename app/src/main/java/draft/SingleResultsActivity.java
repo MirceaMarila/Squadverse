@@ -1,36 +1,20 @@
 package draft;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.squadverse.MainActivity;
 import com.example.squadverse.R;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Field;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
 import common.BaseActivity;
-import formations.F433AttackActivity;
-import information.UserInformation;
-
-import static draft.FormationsActivity.getId;
 
 public class SingleResultsActivity extends BaseActivity {
 
@@ -38,6 +22,7 @@ public class SingleResultsActivity extends BaseActivity {
     ImageView def, mid, att;
     Button back;
     String mode;
+    int challange_count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +45,25 @@ public class SingleResultsActivity extends BaseActivity {
         received_attack_card = getIntent().getStringExtra("best_attacker");
         mode = getIntent().getStringExtra("mode");
 
+        try {
+            challange_count = Integer.parseInt(getIntent().getStringExtra("challange_count"));
+        }
+        catch (Exception e){
+            //nothing
+        }
+
+
         rating.setText(received_rating);
         chem.setText(received_chemistry);
-        score.setText(String.valueOf(Integer.parseInt(received_chemistry) + Integer.parseInt(received_rating)));
+        score.setText(String.valueOf(Integer.parseInt(received_chemistry) + Integer.parseInt(received_rating) + challange_count));
 
         def.setBackgroundResource(getId(received_defence_card, R.drawable.class));
         mid.setBackgroundResource(getId(received_midfield_card, R.drawable.class));
         att.setBackgroundResource(getId(received_attack_card, R.drawable.class));
+        def.getBackground().setAlpha(255);
+        mid.getBackground().setAlpha(255);
+        att.getBackground().setAlpha(255);
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,17 +89,21 @@ public class SingleResultsActivity extends BaseActivity {
     private void publish_results_in_firebase_for_logged_users(){
         if(!mode.equals("Trial")){
 
-            String username = get_current_logged_user_username();
+            String email = reformat_user_email(get_current_logged_user_email());
 
             String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
             HashMap<String, Object> map=new HashMap<>();
-            map.put("Mode", mode);
+            if(mode.equals("Singleplayer"))
+                map.put("Mode", mode);
+            else
+                map.put("Mode", mode.split(" ", 3)[1]);
             map.put("Rating", rating.getText().toString());
             map.put("Chemistry", chem.getText().toString());
             map.put("Score", score.getText().toString());
             map.put("DateTime", timeStamp);
 
-            FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(username).push().updateChildren(map);
+            FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(email).push().updateChildren(map);
         }
     }
+
 }
