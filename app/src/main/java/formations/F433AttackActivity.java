@@ -139,7 +139,8 @@ public class F433AttackActivity extends BaseActivity {
                         players_string = data.getStringExtra("players_string");
                     }
                     put_picked_player_in_team(variabila, pick_Result);
-
+                    submit.setVisibility(View.GONE);
+                    
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -700,12 +701,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lw_st
         if(position_takers.containsKey("lw") && position_takers.containsKey("st")){
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))){
@@ -726,12 +727,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rw_st
         if(position_takers.containsKey("rw") && position_takers.containsKey("st")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -749,12 +750,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_cam_st
         if(position_takers.containsKey("cam") && position_takers.containsKey("st")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -773,12 +774,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lw_lcm
         if(position_takers.containsKey("lw") && position_takers.containsKey("lcm")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -797,12 +798,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rw_rcm
         if(position_takers.containsKey("rw") && position_takers.containsKey("rcm")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -821,12 +822,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_cam_lcm
         if(position_takers.containsKey("cam") && position_takers.containsKey("lcm")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -845,12 +846,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_cam_rcm
         if(position_takers.containsKey("cam") && position_takers.containsKey("rcm")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -869,12 +870,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rw_rb
         if(position_takers.containsKey("rw") && position_takers.containsKey("rb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -892,12 +893,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lw_lb
         if(position_takers.containsKey("lw") && position_takers.containsKey("lb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -916,12 +917,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lcm_lb
         if(position_takers.containsKey("lcm") && position_takers.containsKey("lb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -940,12 +941,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rcm_rb
         if(position_takers.containsKey("rcm") && position_takers.containsKey("rb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -964,12 +965,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rcb_rb
         if(position_takers.containsKey("rcb") && position_takers.containsKey("rb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -988,12 +989,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lcb_lb
         if(position_takers.containsKey("lcb") && position_takers.containsKey("lb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1012,12 +1013,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lcb_rcb
         if(position_takers.containsKey("lcb") && position_takers.containsKey("rcb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1036,12 +1037,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rcm_rcb
         if(position_takers.containsKey("rcm") && position_takers.containsKey("rcb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1060,12 +1061,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lcm_lcb
         if(position_takers.containsKey("lcm") && position_takers.containsKey("lcb")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1084,12 +1085,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_lcb_gk
         if(position_takers.containsKey("lcb") && position_takers.containsKey("gk")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1108,12 +1109,12 @@ public class F433AttackActivity extends BaseActivity {
 
             // link_rcb_gk
         if(position_takers.containsKey("rcb") && position_takers.containsKey("gk")) {
-            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE");
-            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY");
-            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("CLUB");
-            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("LEAGUE");
-            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("NATIONALITY");
-            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("CLUB");
+            liga1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name");
+            tara1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality");
+            echipa1 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("club_name");
+            liga2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("league_name");
+            tara2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("nationality");
+            echipa2 = detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("club_name");
 
             assert echipa1 != null;
             if (echipa1.equals(echipa2) || (liga1.equals(liga2) && tara1.equals(tara2))) {
@@ -1172,77 +1173,77 @@ public class F433AttackActivity extends BaseActivity {
                     case "st":
                         if(Integer.parseInt(chm_st.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("st"));
                         }
                         break;
                     case "lw":
                         if(Integer.parseInt(chm_lw.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("lw"));
                         }
                         break;
                     case "rw":
                         if(Integer.parseInt(chm_rw.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("rw"));
                         }
                         break;
                     case "lcm":
                         if(Integer.parseInt(chm_lcm.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("lcm"));
                         }
                         break;
                     case "cam":
                         if(Integer.parseInt(chm_cam.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("cam"));
                         }
                         break;
                     case "rcm":
                         if(Integer.parseInt(chm_rcm.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("rcm"));
                         }
                         break;
                     case "lb":
                         if(Integer.parseInt(chm_lb.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("lb"));
                         }
                         break;
                     case "lcb":
                         if(Integer.parseInt(chm_lcb.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("lcb"));
                         }
                         break;
                     case "rcb":
                         if(Integer.parseInt(chm_rcb.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("rcb"));
                         }
                         break;
                     case "rb":
                         if(Integer.parseInt(chm_rb.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("rb"));
                         }
                         break;
                     case "gk":
                         if(Integer.parseInt(chm_gk.getText().toString()) < 10)
                         {
-                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("NATIONALITY").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("LEAGUE").equals(manager_league))
+                            if(detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("nationality").equals(manager_nationality) || detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("league_name").equals(manager_league))
                                 chemistry_queue.add(position_takers.get("gk"));
                         }
                         break;
@@ -2375,9 +2376,9 @@ public class F433AttackActivity extends BaseActivity {
         card_manager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (position_takers.size() < 23)
-//                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
-//                else {
+                if (position_takers.size() < 23)
+                    Toast.makeText(F433AttackActivity.this, "You must choose all the players before choosing the manager!", Toast.LENGTH_SHORT).show();
+                else {
 
                     if (manager != null)
                         Toast.makeText(F433AttackActivity.this, "You already chose a manager!", Toast.LENGTH_SHORT).show();
@@ -2389,7 +2390,7 @@ public class F433AttackActivity extends BaseActivity {
                         intent.putExtra("managers_bool", "false");
                         startActivityForResult(intent, REQUEST_CODE);
                     }
-                //}
+                }
             }
         });
 
@@ -2446,7 +2447,7 @@ public class F433AttackActivity extends BaseActivity {
 
                             for(String key: position_takers.keySet()){
                                 if(!key.contains("sub") || !key.contains("res")){
-                                    if(detalii_jucatori.get(get_player_name_from_name(position_takers.get(key))).get("MAIN_FOOT").equals("Right"))
+                                    if(detalii_jucatori.get(get_player_name_from_name(position_takers.get(key))).get("preferred_foot").equals("Right"))
                                         count_challange += 1;
                                 }
                             }
@@ -2626,6 +2627,7 @@ public class F433AttackActivity extends BaseActivity {
         res4.setEnabled(false);
         res5.setEnabled(false);
         card_manager.setEnabled(false);
+        submit.setVisibility(View.GONE);
     }
 
     private void enable_all_buttons(){
@@ -2749,117 +2751,117 @@ public class F433AttackActivity extends BaseActivity {
         for (String key : position_takers.keySet()){
             switch (key){
                 case "st":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("st"))).get("league_name").equals(manager_league))
                             card_st.getBackground().setAlpha(100);
                     break;
 
                 case "lw":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lw"))).get("league_name").equals(manager_league))
                             card_lw.getBackground().setAlpha(100);
                     break;
 
                 case "rw":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rw"))).get("league_name").equals(manager_league))
                             card_rw.getBackground().setAlpha(100);
                     break;
 
                 case "lcm":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcm"))).get("league_name").equals(manager_league))
                             card_lcm.getBackground().setAlpha(100);
                     break;
 
                 case "cam":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("cam"))).get("league_name").equals(manager_league))
                             card_cam.getBackground().setAlpha(100);
                     break;
 
                 case "rcm":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcm"))).get("league_name").equals(manager_league))
                             card_rcm.getBackground().setAlpha(100);
                     break;
 
                 case "lb":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lb"))).get("league_name").equals(manager_league))
                             card_lb.getBackground().setAlpha(100);
                     break;
 
                 case "lcb":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("lcb"))).get("league_name").equals(manager_league))
                             card_lcb.getBackground().setAlpha(100);
                     break;
 
                 case "rcb":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rcb"))).get("league_name").equals(manager_league))
                             card_rcb.getBackground().setAlpha(100);
                     break;
 
                 case "rb":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("rb"))).get("league_name").equals(manager_league))
                             card_rb.getBackground().setAlpha(100);
                     break;
 
                 case "gk":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("gk"))).get("league_name").equals(manager_league))
                             card_gk.getBackground().setAlpha(100);
                     break;
 
                 case "sub1":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub1"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub1"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub1"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub1"))).get("league_name").equals(manager_league))
                         sub1.getBackground().setAlpha(100);
                     break;
 
                 case "sub2":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub2"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub2"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub2"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub2"))).get("league_name").equals(manager_league))
                         sub2.getBackground().setAlpha(100);
                     break;
 
                 case "sub3":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub3"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub3"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub3"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub3"))).get("league_name").equals(manager_league))
                         sub3.getBackground().setAlpha(100);
                     break;
 
                 case "sub4":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub4"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub4"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub4"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub4"))).get("league_name").equals(manager_league))
                         sub4.getBackground().setAlpha(100);
                     break;
 
                 case "sub5":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub5"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub5"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub5"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub5"))).get("league_name").equals(manager_league))
                         sub5.getBackground().setAlpha(100);
                     break;
 
                 case "sub6":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub6"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub6"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub6"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub6"))).get("league_name").equals(manager_league))
                         sub6.getBackground().setAlpha(100);
                     break;
 
                 case "sub7":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub7"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub7"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub7"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("sub7"))).get("league_name").equals(manager_league))
                         sub7.getBackground().setAlpha(100);
                     break;
 
                 case "res1":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res1"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res1"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res1"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res1"))).get("league_name").equals(manager_league))
                         res1.getBackground().setAlpha(100);
                     break;
 
                 case "res2":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res2"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res2"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res2"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res2"))).get("league_name").equals(manager_league))
                         res2.getBackground().setAlpha(100);
                     break;
 
                 case "res3":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res3"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res3"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res3"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res3"))).get("league_name").equals(manager_league))
                         res3.getBackground().setAlpha(100);
                     break;
 
                 case "res4":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res4"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res4"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res4"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res4"))).get("league_name").equals(manager_league))
                         res4.getBackground().setAlpha(100);
                     break;
 
                 case "res5":
-                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res5"))).get("NATIONALITY").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res5"))).get("LEAGUE").equals(manager_league))
+                    if(!detalii_jucatori.get(get_player_name_from_name(position_takers.get("res5"))).get("nationality").equals(manager_nationality) && !detalii_jucatori.get(get_player_name_from_name(position_takers.get("res5"))).get("league_name").equals(manager_league))
                         res5.getBackground().setAlpha(100);
                     break;
             }
