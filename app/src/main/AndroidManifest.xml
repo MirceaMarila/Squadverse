@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Squadverse.Fullscreen">
 
         <activity
+            android:name="game_modes.ChooseChallangeActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="game_modes.LocalModesActivity"
             android:screenOrientation="landscape" />
         <activity

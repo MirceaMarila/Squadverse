@@ -33,6 +33,7 @@ import draft.ManagerPickActivity;
 import draft.MultiResultsActivity;
 import draft.PlayerPickActivity;
 import draft.SingleResultsActivity;
+import game_modes.SinglePlayerActivity;
 
 public class F433AttackActivity extends BaseActivity {
 
@@ -2435,6 +2436,62 @@ public class F433AttackActivity extends BaseActivity {
                     intent.putExtra("your_results", your_results);
                     startActivity(intent);
                     finish();
+                }
+
+                else if(mode.split(" ",3)[2].equals("Challange")){
+                    int count_challange = 0;
+
+                    switch (mode.split(" ",3)[1]){
+                        case "RightMainFoot":
+
+                            for(String key: position_takers.keySet()){
+                                if(!key.contains("sub") || !key.contains("res")){
+                                    if(detalii_jucatori.get(get_player_name_from_name(position_takers.get(key))).get("MAIN_FOOT").equals("Right"))
+                                        count_challange += 1;
+                                }
+                            }
+                            break;
+                    }
+
+                    switch (mode.split(" ",3)[0]){
+
+                        case "Singleplayer":
+                            String best_players = get_best_cards();
+                            String[] best_player_list = best_players.split("@", 4);
+                            Intent intent = new Intent(F433AttackActivity.this, SingleResultsActivity.class);
+                            intent.putExtra("best_defender", best_player_list[0]);
+                            intent.putExtra("best_midfielder", best_player_list[1]);
+                            intent.putExtra("best_attacker", best_player_list[2]);
+                            intent.putExtra("rating", rating.getText().toString());
+                            intent.putExtra("chemistry", chemistry.getText().toString());
+                            intent.putExtra("mode", mode);
+                            intent.putExtra("challange_count", String.valueOf(count_challange));
+                            startActivity(intent);
+                            finish();
+                            break;
+
+                        case "Multiplayer":
+                        case "Friendly":
+                            Intent intent2 = new Intent(F433AttackActivity.this, MultiResultsActivity.class);
+                            intent2.putExtra("rating", rating.getText().toString());
+                            intent2.putExtra("chemistry", chemistry.getText().toString());
+                            intent2.putExtra("mode", mode);
+                            intent2.putExtra("challange_count", String.valueOf(count_challange));
+                            startActivity(intent2);
+                            finish();
+                            break;
+
+                        case "Local":
+                            Intent intent3 = new Intent(F433AttackActivity.this, LocalResultsActivity.class);
+                            String your_results = String.valueOf(Integer.parseInt(rating.getText().toString()) + Integer.parseInt(chemistry.getText().toString())) + "@" + rating.getText().toString() + "@" + chemistry.getText().toString();
+                            intent3.putExtra("your_results", your_results);
+                            intent3.putExtra("challange_count", String.valueOf(count_challange));
+                            startActivity(intent3);
+                            finish();
+                            break;
+                    }
+
+
                 }
 
             }

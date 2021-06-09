@@ -37,7 +37,6 @@ public class HistoryActivity extends BaseActivity {
         istoric.setAdapter(adapter);
 
         if(mode.equals("Singleplayer")){
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Single_player_history").child(reformat_user_email(get_current_logged_user_email()));
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -45,7 +44,7 @@ public class HistoryActivity extends BaseActivity {
                 list.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     HistoryInformation info = snapshot.getValue(HistoryInformation.class);
-                    if (mode.equals("Singleplayer") && info.getMode().equals("Singleplayer")) {
+                    if (mode.equals("Singleplayer") && (info.getMode().equals("Singleplayer") || (!info.getMode().equals("Multiplayer") && !info.getMode().equals("Local") && !info.getMode().equals("Friendly")))){
                         String txt = "\nRating: " + info.getRating() + "                    Chemistry: " + info.getChemistry() + "                  Score: " + info.getScore() + "\n\nMode: " + info.getMode() + "                  DateTime: " + info.getDateTime() + "\n";
                         list.add(txt);
                     }

@@ -22,6 +22,7 @@ public class SingleResultsActivity extends BaseActivity {
     ImageView def, mid, att;
     Button back;
     String mode;
+    int challange_count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,17 @@ public class SingleResultsActivity extends BaseActivity {
         received_attack_card = getIntent().getStringExtra("best_attacker");
         mode = getIntent().getStringExtra("mode");
 
+        try {
+            challange_count = Integer.parseInt(getIntent().getStringExtra("challange_count"));
+        }
+        catch (Exception e){
+            //nothing
+        }
+
+
         rating.setText(received_rating);
         chem.setText(received_chemistry);
-        score.setText(String.valueOf(Integer.parseInt(received_chemistry) + Integer.parseInt(received_rating)));
+        score.setText(String.valueOf(Integer.parseInt(received_chemistry) + Integer.parseInt(received_rating) + challange_count));
 
         def.setBackgroundResource(getId(received_defence_card, R.drawable.class));
         mid.setBackgroundResource(getId(received_midfield_card, R.drawable.class));
@@ -84,7 +93,10 @@ public class SingleResultsActivity extends BaseActivity {
 
             String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
             HashMap<String, Object> map=new HashMap<>();
-            map.put("Mode", mode);
+            if(mode.equals("Singleplayer"))
+                map.put("Mode", mode);
+            else
+                map.put("Mode", mode.split(" ", 3)[1]);
             map.put("Rating", rating.getText().toString());
             map.put("Chemistry", chem.getText().toString());
             map.put("Score", score.getText().toString());

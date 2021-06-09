@@ -46,5 +46,14 @@ public class SinglePlayerActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        challanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SinglePlayerActivity.this, ChooseChallangeActivity.class);
+                intent.putExtra("mode", "Singleplayer");
+                startActivity(intent);
+            }
+        });
     }
 }
