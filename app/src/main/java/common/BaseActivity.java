@@ -361,7 +361,7 @@ public class BaseActivity extends AppCompatActivity {
             return_string = user2.getEmail();
 
         if(acct!=null)
-            return_string = acct.getEmail();
+            return_string = acct.getDisplayName();
 
         return return_string;
 

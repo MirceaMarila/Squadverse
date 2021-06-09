@@ -28,6 +28,7 @@ import static draft.FormationsActivity.getId;
 
 import common.BaseActivity;
 import draft.CaptainActivity;
+import draft.LocalResultsActivity;
 import draft.ManagerPickActivity;
 import draft.MultiResultsActivity;
 import draft.PlayerPickActivity;
@@ -2424,6 +2425,14 @@ public class F433AttackActivity extends BaseActivity {
                     intent.putExtra("rating", rating.getText().toString());
                     intent.putExtra("chemistry", chemistry.getText().toString());
                     intent.putExtra("mode", mode);
+                    startActivity(intent);
+                    finish();
+                }
+
+                else if(mode.equals("Local")){
+                    Intent intent = new Intent(F433AttackActivity.this, LocalResultsActivity.class);
+                    String your_results = String.valueOf(Integer.parseInt(rating.getText().toString()) + Integer.parseInt(chemistry.getText().toString())) + "@" + rating.getText().toString() + "@" + chemistry.getText().toString();
+                    intent.putExtra("your_results", your_results);
                     startActivity(intent);
                     finish();
                 }
